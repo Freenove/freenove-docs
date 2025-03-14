@@ -10,12 +10,14 @@ $(window).resize(function () {
 
 function loadReady() {
 	// console.log('ready ... ');
+	setNavBar();
 	NaviResize();
 	var autoPlay2 = setInterval("test()", 1000);
 	$(".dropBtn").click(function () {
 		// $(this).css("background-color", "#FFF");
 		$("#txt").text("click:");
 	});
+
 }
 
 function NaviResize() {
@@ -35,7 +37,7 @@ function NaviResize() {
 	var navItemWidth = navWidth / 7;
 	navItemWidth = navItemWidth < 60 ? 60 : navItemWidth;
 	var navItemHeight = navItemWidth / 5;
-	console.log("navWidth " + navWidth + ' navItemWidth: ' + navItemWidth + " " + $('.wy-nav-side').offset().left + "");
+	// console.log("navWidth " + navWidth + ' navItemWidth: ' + navItemWidth + " " + $('.wy-nav-side').offset().left + "");
 	// $(".extrabody-content").height(navItemWidth);
 	// $(".nav_fn").height(navItemHeight);
 	// $(".nav_fn>ul").css("line-height", navItemHeight + "px");
@@ -43,7 +45,7 @@ function NaviResize() {
 	// console.log('.extrabody-content.height: ' + $(".extrabody-content").height());
 	$(".nav_fn>ul>li").height($(".extrabody-content").height);
 	$(".nav_fn>ul a").css("font-size", navItemWidth * 0.15 + "px");
-	
+
 }
 function test() {
 	//var today=new Date()
@@ -53,3 +55,98 @@ function test() {
 	$("#txt").fadeToggle(1000);
 	//$("#txt").text(bannerCount+":"+winWidth);
 }
+
+function setPageLogo() {
+	var link =
+		document.querySelector("link[rel*='icon']") ||
+		document.createElement("link");
+	link.type = "image/x-icon";
+	link.rel = "shortcut icon";
+	link.href = "_static/images/logo_head_16.png";
+	document.getElementsByTagName("head")[0].appendChild(link);
+}
+
+let navBarHTML =
+	`
+  <div class="nav_fn">
+    <ul>
+        <!-- <li class="navLogo"><a href="/index.html"></a></li> -->
+        <li>
+            <div class="navDropDown">
+                <a href="https://docs.freenove.com/en/latest/"  target="_blank" class="dropBtn">Home</a>
+                <div class="dropDownContent">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="navDropDown">
+                <a href="#" class="dropBtn">Store</a>
+                <div class="dropDownContent">
+                    <a href="https://store.freenove.com/" target="_blank">Official </a>
+                    <a href="https://freenove.com/store" target="_blank">Amazon </a>
+                    <a href="https://freenove.com/store" target="_blank">eBay </a>
+                    <a href="https://freenove.aliexpress.com/store" target="_blank">AliExpress </a>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="navDropDown">
+                <a href="https://docs.freenove.com/en/latest/about-freenove/tutorial.html#" target="_blank" class="dropBtn">Tutorial</a>
+                <div class="dropDownContent">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="navDropDown">
+                <a href="https://docs.freenove.com/en/latest/about-freenove/support.html#" target="_blank" class="dropBtn">Support</a>
+                <div class="dropDownContent">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="navDropDown">
+                <a href="https://docs.freenove.com/en/latest/about-freenove/app.html#" target="_blank" class="dropBtn">App</a>
+                <div class="dropDownContent">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="navDropDown">
+                <a href="https://docs.freenove.com/en/latest/about-freenove/contact.html#" target="_blank" class="dropBtn">Contact</a>
+                <div class="dropDownContent">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="navDropDown">
+                <a href="https://docs.freenove.com/en/latest/about-freenove/about.html#" target="_blank" class="dropBtn">About</a>
+                <div class="dropDownContent">
+                </div>
+            </div>
+        </li>
+        
+            <!-- <li id="txt">
+                <div class="navDropDown">
+                    <a href="https://freenove.com/" class="dropBtn">Welcome</a>
+                    <div class="dropDownContent">
+                    </div>
+                </div>
+            </li> -->
+       
+    </ul>
+</div>
+`;
+
+function setNavBar() {
+	let navBar = document.getElementById('navContent');
+
+	// console.log("111: " + navBar.innerHTML);
+	navBar.innerHTML = navBarHTML;
+	// console.log("222: " + navBar.innerHTML);
+}
+
+window.onload = function () {
+
+	console.log('window.onload');
+	// setPageLogo();
+};
