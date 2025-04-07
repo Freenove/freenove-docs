@@ -208,7 +208,7 @@ Tutorial
       - Freenove Quadruped Robot Kit	
       - `View <https://github.com/Freenove/Freenove_Quadruped_Robot_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Quadruped_Robot_Kit/archive/master.zip>`__
-      - Online
+      - :Freenove:`Online <fnk0030>`
 
     * - FNK0028	
       - Freenove Remote Control Kit	
@@ -220,19 +220,19 @@ Tutorial
       - Freenove Hexapod Robot Kit	
       - `View <https://github.com/Freenove/Freenove_Hexapod_Robot_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Hexapod_Robot_Kit/archive/master.zip>`__
-      - Online
+      - :Freenove:`Online <fnk0031>`
 
     * - FNK0030	
       - Freenove Quadruped Robot Kit	
       - `View <https://github.com/Freenove/Freenove_Quadruped_Robot_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Quadruped_Robot_Kit/archive/master.zip>`__
-      - Online
+      - :Freenove:`Online <fnk0030>`
 
     * - FNK0031	
       - Freenove Hexapod Robot Kit	
       - `View <https://github.com/Freenove/Freenove_Hexapod_Robot_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Hexapod_Robot_Kit/archive/master.zip>`__
-      - Online
+      - :Freenove:`Online <fnk0031>`
 
     * - FNK0033	
       - Freenove Bipedal Robot Kit
