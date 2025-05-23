@@ -110,18 +110,3 @@ h4 {
     font-family: "DengXian";
     font-weight: normal;
 }
-
-/* Hide the original icon */
-.admonition .admonition-title::before {
-    content: "" !important; /* Clear the original content */
-}
-
-/* Add new icon */
-.admonition .admonition-title {
-    background-image: url('../images/freenove_admonition.png');
-    background-repeat: no-repeat;
-    background-position: left 5px center;  /* Maintain vertical centering */
-    background-size: 24px 24px;            /* Force icon size to 24x24 pixels */
-    padding-left: 30px;                
-    line-height: 24px;                     /* Keep line height consistent with icon height */
-}
