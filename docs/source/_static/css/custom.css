@@ -41,7 +41,9 @@
 }
 
 /* 
- * Modify the table to have orange-white gradient zebra striping and add borders on all sides. 
+ * 1. Modify the table to have orange-white gradient zebra striping and add borders on all sides.
+   2. Modify the heading style and apply it by default.
+   3. Hide the original icon 
  
  * author: vegetable-syc
 
@@ -72,14 +74,6 @@ table.freenove-ow tbody tr:nth-child(even) {
 table.freenove-ow thead tr:nth-child(odd) {
   background-color: #ff7b00
 }
-
-/* 
- * Modify the heading style and apply it by default. 
- 
- * author: vegetable-syc
-
- * date: 2025/05/23
- */
 
 /* Heading 1 */
 h1 {
@@ -115,4 +109,19 @@ h4 {
     font-size: 20px;
     font-family: "DengXian";
     font-weight: normal;
+}
+
+/* Hide the original icon */
+.admonition .admonition-title::before {
+    content: "" !important; /* Clear the original content */
+}
+
+/* Add new icon */
+.admonition .admonition-title {
+    background-image: url('../images/freenove_admonition.png');
+    background-repeat: no-repeat;
+    background-position: left 5px center;  /* Maintain vertical centering */
+    background-size: 24px 24px;            /* Force icon size to 24x24 pixels */
+    padding-left: 30px;                
+    line-height: 24px;                     /* Keep line height consistent with icon height */
 }
