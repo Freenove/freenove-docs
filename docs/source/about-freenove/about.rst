@@ -2,7 +2,7 @@
 About
 ###########
 
-.. admonition:: Contact
+.. admonition:: About
     
     .. image:: /_static/images/freenove.png
         :width: 50%
