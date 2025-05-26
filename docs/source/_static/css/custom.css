@@ -44,6 +44,7 @@
  * 1. Modify the table to have orange-white gradient zebra striping and add borders on all sides.
    2. Modify the heading style and apply it by default.
    3. Hide the original icon 
+   4. Modify the style of custom icons.
  
  * author: vegetable-syc
 
@@ -109,4 +110,23 @@ h4 {
     font-size: 20px;
     font-family: "DengXian";
     font-weight: normal;
+}
+
+[class^="admonition-"] .admonition-title::before {
+    content: "" !important;
+}
+
+[class^="admonition-"] .admonition-title {
+    background-color: #ff7b00 !important;
+    background-image: url('../images/freenove_admonition.png');
+    background-repeat: no-repeat;
+    background-position: left 5px center;
+    background-size: 24px 24px;
+    padding-left: 30px;                
+    line-height: 24px;
+    /* border-radius: 3px !important; */
+}
+
+div[class^="admonition-"] {
+    background-color: #dba7594d !important;
 }
