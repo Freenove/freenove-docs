@@ -3,7 +3,7 @@ App
 ###########
 
 For Android
-********************
+==============================
 
 .. admonition:: For Android
     
@@ -24,7 +24,7 @@ For Android
 |
 
 For iPhone
-********************
+==============================
 
 .. admonition:: For iPhone
     

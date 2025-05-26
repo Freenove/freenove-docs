@@ -3,7 +3,7 @@ Support
 ###########
 
 Get Support
-********************
+==============================
 
 .. admonition:: Get Support
     
@@ -18,9 +18,9 @@ Get Support
 
 
 Get Tutorial
-********************
+==============================
 
-.. admonition:: Get Support
+.. admonition:: Get Tutorial
 
 
     | Download digital materials for Freenove products.
