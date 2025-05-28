@@ -35,8 +35,6 @@
 }
 
 .custom-center {
-    margin-left: 240px;  /* Left spacing */
-    margin-right: 20px; /* Right spacing */
     margin: 20px 20px 0px 240px;  /* Top, Right, Bottom, Left spacing */
 }
 
@@ -134,22 +132,4 @@ h4 {
 
 div[class^="admonition-"] {
     background-color: #dba7594d !important;
-}
-
-/* Adjust the width of the main content area */
-.wy-nav-content {
-    max-width: 1200px !important; /* Default: 800px */
-    margin: left;
-}
-
-/* Adjust the width of code blocks and tables */
-.wy-table-responsive table td,
-.wy-table-responsive table th {
-    white-space: normal !important;
-}
-
-.rst-content .code-block,
-.rst-content pre.literal-block {
-    max-width: 100%;
-    overflow-x: auto;
 }
