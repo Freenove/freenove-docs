@@ -5,9 +5,10 @@ Starter kits
 ----------------------------------------------------------------
 
 .. list-table:: 
-   :header-rows: 1
-   :width: 86.5% 
-   :align: left
+   :header-rows: 1 
+   :width: 70%
+   :align: center
+   :widths: 6 3 12
    
    * -  Image
      -  SKU

@@ -3,11 +3,11 @@
 Starter kits
 ----------------------------------------------------------------
 
-
 .. list-table:: 
    :header-rows: 1 
-   :width: 91%
-   :align: left
+   :width: 70%
+   :align: center
+   :widths: 6 3 12
    
    * -  Image
      -  SKU
@@ -44,8 +44,9 @@ Robotics kits
 
 .. list-table:: 
    :header-rows: 1 
-   :width: 91.5%
-   :align: left
+   :width: 70%
+   :align: center
+   :widths: 6 3 12
    
    * -  Image
      -  SKU

@@ -6,8 +6,9 @@ Starter kits
 
 .. list-table:: 
    :header-rows: 1 
-   :width: 75%
-   :align: left
+   :width: 70%
+   :align: center
+   :widths: 6 3 12
    
    * -  Image
      -  SKU
@@ -46,8 +47,8 @@ Starter kits
      -  Freenove Projects Kit for Raspberry Pi
 
 .. |FNK0019.MAIN| image:: ../_static/products/RaspberryPi/FNK0019.MAIN.jpg    
-.. |FNK0020.MAIN| image:: ../_static/products/RaspberryPi/FNK0020.MAIN.jpg    
-.. |FNK0022.MAIN| image:: ../_static/products/RaspberryPi/FNK0022.MAIN.jpg    
+.. |FNK0020.MAIN| image:: ../_static/products/RaspberryPi/FNK0020.MAIN.jpg   
+.. |FNK0022.MAIN| image:: ../_static/products/RaspberryPi/FNK0022.MAIN.jpg   
 .. |FNK0023.MAIN| image:: ../_static/products/RaspberryPi/FNK0023.MAIN.jpg    
 .. |FNK0024.MAIN| image:: ../_static/products/RaspberryPi/FNK0024.MAIN.jpg    
 .. |FNK0025.MAIN| image:: ../_static/products/RaspberryPi/FNK0025.MAIN.jpg    
@@ -59,8 +60,9 @@ Robotics kits
 
 .. list-table:: 
    :header-rows: 1 
-   :width: 84%
-   :align: left
+   :width: 70%
+   :align: center
+   :widths: 6 3 12
    
    * -  Image
      -  SKU

@@ -8,26 +8,12 @@ Tutorial
     **Need help? Contact** support@freenove.com
 
 .. list-table:: 
-    :class: product-table
+    :align: center
 
     * - SKU	
       - Product Name	
-      - .. container:: centered
-            
-            View  on 
-       
-        .. container:: centered
-            
-            GitHub	
-
-      - .. container:: centered
-            
-            Download
-       
-        .. container:: centered
-            
-            ZIP
-
+      - View on GitHub	
+      - Download ZIP
       - Online
 
     * - FNK0001	
@@ -61,9 +47,7 @@ Tutorial
       - Online
 
     * - FNK0006	
-      - Freenove Super Starter Kit
-
-        without Control Board	
+      - Freenove Super Starter Kit without Control Board	
       - `View <https://github.com/Freenove/Freenove_Super_Starter_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Super_Starter_Kit/archive/master.zip>`__
       - Online
@@ -75,9 +59,7 @@ Tutorial
       - Online
 
     * - FNK0008	
-      - Freenove Basic Starter Kit
-
-        without Control Board	
+      - Freenove Basic Starter Kit without Control Board	
       - `View <https://github.com/Freenove/Freenove_Basic_Starter_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Basic_Starter_Kit/archive/master.zip>`__
       - Online
@@ -89,9 +71,7 @@ Tutorial
       - Online
 
     * - FNK0010	
-      - Freenove LCD1602 Starter Kit
-
-        without Control Board	
+      - Freenove LCD1602 Starter Kit without Control Board	
       - `View <https://github.com/Freenove/Freenove_LCD1602_Starter_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_LCD1602_Starter_Kit/archive/master.zip>`__
       - Online
@@ -103,9 +83,7 @@ Tutorial
       - Online
 
     * - FNK0012	
-      - Freenove Ultrasonic Starter Kit
-
-        without Control Board	
+      - Freenove Ultrasonic Starter Kit without Control Board	
       - `View <https://github.com/Freenove/Freenove_Ultrasonic_Starter_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Ultrasonic_Starter_Kit/archive/master.zip>`__
       - Online
@@ -117,9 +95,7 @@ Tutorial
       - Online
 
     * - FNK0014	
-      - Freenove Modular Starter Kit
-
-        without Control Board	
+      - Freenove Modular Starter Kit without Control Board	
       - `View <https://github.com/Freenove/Freenove_Modular_Starter_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Modular_Starter_Kit/archive/master.zip>`__
       - Online
@@ -131,9 +107,7 @@ Tutorial
       - Online
 
     * - FNK0016	
-      - Freenove RFID Starter Kit
-
-        without Control Board	
+      - Freenove RFID Starter Kit without Control Board	
       - `View <https://github.com/Freenove/Freenove_RFID_Starter_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_RFID_Starter_Kit/archive/master.zip>`__
       - Online
@@ -145,9 +119,7 @@ Tutorial
       - :Freenove:`Online <fnk0017>`
 
     * - FNK0018	
-      - Freenove Ultimate Starter Kit
-
-        without Control Board	
+      - Freenove Ultimate Starter Kit without Control Board	
       - `View <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit/archive/master.zip>`__
       - :Freenove:`Online <fnk0017>`
@@ -165,9 +137,7 @@ Tutorial
       - :Freenove:`Online <fnk0020>`
 
     * - FNK0021	
-      - Freenove Three-wheeled Smart Car Kit
-
-        for Raspberry Pi	
+      - Freenove Three-wheeled Smart Car Kit for Raspberry Pi	
       - `View <https://github.com/Freenove/Freenove_Three-wheeled_Smart_Car_Kit_for_Raspberry_Pi>`__	
       - `Download <https://github.com/Freenove/Freenove_Three-wheeled_Smart_Car_Kit_for_Raspberry_Pi/archive/master.zip>`__
       - :Freenove:`Online <fnk0021>`
@@ -197,9 +167,7 @@ Tutorial
       - :Freenove:`Online <fnk0025>`
 
     * - FNK0026	
-      - Freenove Three-wheeled Smart Car Kit
-
-        Enhanced	
+      - Freenove Three-wheeled Smart Car Kit Enhanced	
       - `View <https://github.com/Freenove/Freenove_Three-wheeled_Smart_Car_Kit>`__	
       - `Download <https://github.com/Freenove/Freenove_Three-wheeled_Smart_Car_Kit/archive/master.zip>`__
       - Online
@@ -235,9 +203,7 @@ Tutorial
       - :Freenove:`Online <fnk0031>`
 
     * - FNK0033	
-      - Freenove Bipedal Robot Kit
-
-        for Raspberry Pi Pico (W)	
+      - Freenove Bipedal Robot Kit for Raspberry Pi Pico (W)	
       - `View <https://github.com/Freenove/Freenove_Bipedal_Robot_Kit_for_Raspberry_Pi_Pico>`__	
       - `Download <https://github.com/Freenove/Freenove_Bipedal_Robot_Kit_for_Raspberry_Pi_Pico/archive/refs/heads/main.zip>`__
       - Online
@@ -249,9 +215,7 @@ Tutorial
       - :Freenove:`Online <fnk0034>`
 
     * - FNK0035	
-      - Freenove RFID Starter Kit
-
-        V2.0 without Control Board	
+      - Freenove RFID Starter Kit V2.0 without Control Board	
       - `View <https://github.com/Freenove/Freenove_RFID_Starter_Kit_V2.0>`__	
       - `Download <https://github.com/Freenove/Freenove_RFID_Starter_Kit_V2.0/archive/master.zip>`__
       - Online
@@ -281,9 +245,7 @@ Tutorial
       - Online
 
     * - FNK0040	
-      - Freenove Case Kit
-
-        for Raspberry Pi 4B with Fan	
+      - Freenove Case Kit for Raspberry Pi 4B with Fan	
       - `View <https://github.com/Freenove/Freenove_Starter_kit_for_Raspberry_Pi_4B>`__	
       - `Download <https://github.com/Freenove/Freenove_Starter_kit_for_Raspberry_Pi_4B/archive/master.zip>`__
       - Online
@@ -343,9 +305,7 @@ Tutorial
       - :Freenove:`Online <fnk0050>`
 
     * - FNK0052	
-      - Freenove Big Hexapod Robot Kit
-
-        for Raspberry Pi	
+      - Freenove Big Hexapod Robot Kit for Raspberry Pi	
       - `View <https://github.com/Freenove/Freenove_Big_Hexapod_Robot_Kit_for_Raspberry_Pi>`__	
       - `Download <https://github.com/Freenove/Freenove_Big_Hexapod_Robot_Kit_for_Raspberry_Pi/archive/master.zip>`__
       - :Freenove:`Online <fnk0052>`
@@ -375,9 +335,7 @@ Tutorial
       - Online
 
     * - FNK0058	
-      - Freenove Ultimate Starter Kit
-
-        for Raspberry Pi Pico	
+      - Freenove Ultimate Starter Kit for Raspberry Pi Pico	
       - `View <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit_for_Raspberry_Pi_Pico>`__	
       - `Download <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit_for_Raspberry_Pi_Pico/archive/refs/heads/master.zip>`__
       - :Freenove:`Online <fnk0058>`
@@ -407,9 +365,7 @@ Tutorial
       - Online
 
     * - FNK0063	
-      - Freenove Super Starter Kit
-
-        for Raspberry Pi Pico	
+      - Freenove Super Starter Kit for Raspberry Pi Pico	
       - `View <https://github.com/Freenove/Freenove_Super_Starter_Kit_for_Raspberry_Pi_Pico>`__	
       - `Download <https://github.com/Freenove/Freenove_Super_Starter_Kit_for_Raspberry_Pi_Pico/archive/refs/heads/main.zip>`__
       - :Freenove:`Online <fnk0063>`
@@ -429,9 +385,7 @@ Tutorial
       - :Freenove:`Online <fnk0058>`
 
     * - FNK0066	
-      - Freenove Complete Starter Kit
-
-        for Raspberry Pi	
+      - Freenove Complete Starter Kit for Raspberry Pi	
       - `View <https://github.com/Freenove/Freenove_Complete_Starter_Kit_for_Raspberry_Pi>`__	
       - `Download <https://github.com/Freenove/Freenove_Complete_Starter_Kit_for_Raspberry_Pi/archive/refs/heads/main.zip>`__
       - :Freenove:`Online <fnk0066>`
@@ -557,9 +511,7 @@ Tutorial
       - Online
 
     * - FNK0089	
-      - Freenove 4WD Car Kit
-
-        for Raspberry Pi Pico (W)	
+      - Freenove 4WD Car Kit for Raspberry Pi Pico (W)	
       - `View <https://github.com/Freenove/Freenove_4WD_Car_Kit_for_Raspberry_Pi_Pico>`__	
       - `Download <https://github.com/Freenove/Freenove_4WD_Car_Kit_for_Raspberry_Pi_Pico/archive/refs/heads/main.zip>`__
       - Online
@@ -577,17 +529,13 @@ Tutorial
       - Online
 
     * - FNK0092	
-      - Freenove Complete Starter Kit
-
-        for Control Board V5	
+      - Freenove Complete Starter Kit for Control Board V5	
       - `View <https://github.com/Freenove/Freenove_Complete_Starter_Kit_for_Control_Board_V5>`__	
       - `Download <https://github.com/Freenove/Freenove_Complete_Starter_Kit_for_Control_Board_V5/archive/refs/heads/main.zip>`__
       - :Freenove:`Online <fnk0092>`
 
     * - FNK0093	
-      - Freenove Ultimate Starter Kit
-
-        for Control Board V5	
+      - Freenove Ultimate Starter Kit for Control Board V5	
       - `View <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit_for_Control_Board_V5>`__	
       - `Download <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit_for_Control_Board_V5/archive/refs/heads/main.zip>`__
       - :Freenove:`Online <fnk0093>`
@@ -611,9 +559,7 @@ Tutorial
       - :Freenove:`Online <fnk0096>`
 
     * - FNK0097	
-      - Freenove Omni Wheel Car Kit
-
-        for Raspberry Pi Pico	
+      - Freenove Omni Wheel Car Kit for Raspberry Pi Pico	
       - `View <https://github.com/Freenove/Freenove_Omni_Wheel_Car_Kit_for_Raspberry_Pi_Pico>`__	
       - `Download <https://github.com/Freenove/Freenove_Omni_Wheel_Car_Kit_for_Raspberry_Pi_Pico/archive/refs/heads/main.zip>`__
       - Online

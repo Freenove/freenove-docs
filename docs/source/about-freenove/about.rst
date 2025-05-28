@@ -2,7 +2,7 @@
 About
 ###########
 
-.. admonition:: About
+.. admonition:: :x-large:`About`
     
     .. image:: /_static/images/freenove.png
         :width: 50%

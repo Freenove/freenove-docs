@@ -3,8 +3,9 @@
 
 .. list-table:: 
    :header-rows: 1 
-   :width: 76%
-   :align: left
+   :width: 70%
+   :align: center
+   :widths: 6 3 12
    
    * -  Image
      -  SKU
