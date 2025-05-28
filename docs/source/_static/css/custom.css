@@ -45,19 +45,18 @@
    2. Modify the heading style and apply it by default.
    3. Hide the original icon 
    4. Modify the style of custom icons.
- 
+   5. Modify the page width
+
  * author: vegetable-syc
 
- * date: 2025/05/23
-
- * usage: :class: freenove-ow
+ * date: 2025/05/27
  */
 
 table.freenove-ow {
   border-collapse: collapse;
   width: auto;
-  margin: 2em auto;
-  border-radius: 8px;
+  margin: auto auto;
+  /* border-radius: 8px; */
   overflow: hidden;
   background: rgb(0, 0, 0);
 }
@@ -69,11 +68,17 @@ table.freenove-ow th {
 }
 
 table.freenove-ow tbody tr:nth-child(even) {
-  background-color: #ff7b00
+  background-color: #f7e0c5;
+  font-family: "DengXian";
+  font-size: 20px;
 }
 
 table.freenove-ow thead tr:nth-child(odd) {
-  background-color: #ff7b00
+  background-color: #ff7b00;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "DengXian";
+  font-size: 20px;
 }
 
 /* Heading 1 */
@@ -129,4 +134,22 @@ h4 {
 
 div[class^="admonition-"] {
     background-color: #dba7594d !important;
+}
+
+/* Adjust the width of the main content area */
+.wy-nav-content {
+    max-width: 1200px !important; /* Default: 800px */
+    margin: left;
+}
+
+/* Adjust the width of code blocks and tables */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal !important;
+}
+
+.rst-content .code-block,
+.rst-content pre.literal-block {
+    max-width: 100%;
+    overflow-x: auto;
 }
