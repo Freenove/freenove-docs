@@ -141,3 +141,31 @@ window.onload = function () {
 
 // console.log('freenove');
 
+// Add a copy button to the code.
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('div[class^="highlight-"]').forEach(function(codeBlock) {
+    const copyButton = document.createElement('button');
+    copyButton.className = 'copy-button';
+    copyButton.title = 'Copy to clipboard';
+    copyButton.innerHTML = 'Copy';
+    
+    codeBlock.style.position = 'relative';
+    copyButton.style.position = 'absolute';
+    copyButton.style.top = '5px';
+    copyButton.style.right = '10px';
+    copyButton.style.cursor = 'pointer';
+    codeBlock.appendChild(copyButton);
+    
+    copyButton.style.display = 'flex';
+    copyButton.style.alignItems = 'center';
+    copyButton.style.justifyContent = 'center';
+
+    copyButton.addEventListener('click', function() {
+      const codeContent = codeBlock.querySelector('pre').innerText;
+      navigator.clipboard.writeText(codeContent).then(() => {
+        copyButton.innerHTML = '<span style="position:relative; top:-3px; padding-right: 13px">✔</span>';
+        setTimeout(() => copyButton.innerHTML = 'Copy', 500);
+      });
+    });
+  });
+});

@@ -151,3 +151,17 @@ div[class^="admonition-"] {
     max-width: 100%;
     overflow-x: auto;
 }
+
+/* _static/custom.css */
+.copy-button {
+    color: #ffffff;
+    background-color: #000;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+.copy-button:hover {
+  opacity: 1;
+}
