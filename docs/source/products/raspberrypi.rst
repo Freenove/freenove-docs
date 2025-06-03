@@ -43,7 +43,7 @@ Starter kits
      -  Freenove Complete Starter Kit for Raspberry Pi
   
    * -  |FNK0054.MAIN|
-     -  :Freenove:`FNK0054 <fnk0054>`
+     -  fnk0054
      -  Freenove Projects Kit for Raspberry Pi
 
 .. |FNK0019.MAIN| image:: ../_static/products/RaspberryPi/FNK0019.MAIN.jpg    
@@ -69,31 +69,31 @@ Robotics kits
      -  Name
 
    * -  |FNK0021.MAIN|
-     -  FNK0021
+     -  fnk0021
      -  Freenove Three-wheeled Smart Car Kit for Raspberry Pi
 
    * -  |FNK0036.MAIN|
-     -  FNK0036
+     -  fnk0036
      -  Freenove Robot Arm Kit for Raspberry Pi
 
    * -  |FNK0043.MAIN|
-     -  :Freenove:`FNK0043 <fnk0043>` 
+     -  fnk0043
      -  Freenove 4WD Smart Car Kit for Raspberry Pi
 
    * -  |FNK0043B.MAIN| 
-     -  FNK0043B
+     -  fnk0043B
      -  Freenove 4MWD Smart Car Kit for Raspberry Pi
 
    * -  |FNK0050.MAIN|
-     -  :Freenove:`FNK0050 <fnk0050>`   
+     -  fnk0050  
      -  Freenove Robot Dog Kit for Raspberry Pi
 
    * -  |FNK0052.MAIN|
-     -  :Freenove:`FNK0052 <fnk0052>`   
+     -  fnk0052  
      -  Freenove Big Hexapod Robot Kit for Raspberry Pi
 
    * -  |FNK0077.MAIN|
-     -  FNK0077
+     -  fnk0077
      -  Freenove Tank Robot Kit for Raspberry Pi
 
 .. |FNK0021.MAIN| image:: ../_static/products/RaspberryPi/FNK0021.MAIN.jpg

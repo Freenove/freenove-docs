@@ -15,31 +15,31 @@ Starter kits
      -  Name
 
    * -  |FNK0092|
-     -  :Freenove:`FNK0092 <fnk0092>`
+     -  fnk0092
      -  Freenove Complete Starter Kit with Board V5 WiFi Mini 
       
         (Compatible with Arduino IDE)
 
    * -  |FNK0093|
-     -  :Freenove:`FNK0093 <fnk0093>`
+     -  fnk0093
      -  Freenove Ultimate Starter Kit with Board V5 WiFi Mini 
 
         (Compatible with Arduino IDE)
 
    * -  |FNK0094|
-     -  :Freenove:`FNK0092 <fnk0094>`
+     -  fnk0094
      -  Freenove Super Starter Kit with Board V5 WiFi Mini 
 
         (Compatible with Arduino IDE)
 
    * -  |FNK0095|
-     -  :Freenove:`FNK0095 <fnk0095>`
+     -  fnk0095
      -  Freenove Basic Starter Kit with Board V5 WiFi Mini 
 
         (Compatible with Arduino IDE)
 
    * -  |FNK0096|
-     -  :Freenove:`FNK0096 <fnk0096>`
+     -  fnk0096
      -  Freenove Control Board V5 Compatible with 
       
         Arduino UNO R4 WiFi Mini

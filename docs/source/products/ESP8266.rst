@@ -15,19 +15,19 @@ Starter kits
      -  Name
 
    * -  |FNK0073|
-     -  :Freenove:`FNK0073 <fnk0073>`
+     -  fnk0073
      -  Freenove Ultimate Starter Kit for ESP8266
 
    * -  |FNK0074|
-     -  :Freenove:`FNK0074 <fnk0074>`
+     -  fnk0074
      -  Freenove Super Starter Kit for ESP8266
 
    * -  |FNK0075|
-     -  :Freenove:`FNK0075 <fnk0075>`
+     -  fnk0075
      -  Freenove Basic Starter Kit for ESP8266
 
    * -  |FNK0076|
-     -  :Freenove:`FNK0076 <fnk0076>`
+     -  fnk0076
      -  Freenove ESP8266 Board
   
 .. |FNK0073| image:: ../_static/products/ESP8266/FNK0073.png  

@@ -15,23 +15,23 @@ Starter kits
      -  Name
 
    * -  |FNK0046|
-     -  :Freenove:`FNK0046 <fnk0046>`
+     -  fnk0046
      -  Freenove Super Starter Kit for ESP32-WROVER CAM
 
    * -  |FNK0047|
-     -  :Freenove:`FNK0047 <fnk0047>`
+     -  fnk0047
      -  Freenove Ultimate Starter Kit for ESP32-WROVER CAM
 
    * -  |FNK0060|
-     -  :Freenove:`FNK0060 <fnk0060>`
+     -  fnk0060
      -  Freenove ESP32-WROVER CAM Board
 
    * -  |FNK0061|
-     -  :Freenove:`FNK0061 <fnk0061>`
+     -  fnk0061
      -  Freenove Basic Starter Kit for ESP32-WROVER CAM
 
    * -  |FNK0090|
-     -  :Freenove:`FNK0090 <fnk0090>`
+     -  fnk0090
      -  Freenove ESP32-WROOM Board
 
    * -  |FNK0091|
@@ -59,11 +59,11 @@ Robotics kits
      -  Name
 
    * -  |FNK0053|
-     -  :Freenove:`FNK0053 <fnk0053>`
+     -  fnk0053
      -  Freenove 4WD Car Kit for ESP32-WROVER CAM
 
    * -  |FNK0062|
-     -  :Freenove:`FNK0062 <fnk0062>`
+     -  fnk0062
      -  Freenove Robot Dog Kit for ESP32-WROVER CAM
 
 .. |FNK0053| image:: ../_static/products/ESP32/FNK0053.png   
