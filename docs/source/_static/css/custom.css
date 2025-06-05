@@ -166,6 +166,39 @@ div[class^="admonition-"] {
   opacity: 1;
 }
 
+dl.py.function {
+    border: 1px solid black;
+    color: black;
+    padding: 0;
+    margin: 10px 0;
+}
+
+dl.py.function dt.sig.sig-object.py {
+    all: revert !important; 
+    display: inline-block !important;
+    padding: 5px 5px !important;
+    background-color: #ff7b00 !important;
+    border: 1px solid black !important;
+    font-weight: bolder !important;
+}
+
+dl.c.function {
+    border: 1px solid black;
+    color: black;
+    padding: 0;
+    margin: 10px 0;
+}
+
+dl.c.function dt.sig.sig-object.c {
+    all: revert !important; 
+    display: inline-block !important;
+    padding: 5px 5px !important;
+    background-color: #ff7b00 !important;
+    border: 1px solid black !important;
+    font-weight: bolder !important;
+}
+
+
 #fnk-quick-jump {
     position: fixed;
     z-index: 1000;
