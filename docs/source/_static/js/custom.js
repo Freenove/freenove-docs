@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tempWidget.style.cssText = `
             position: fixed; 
             top: 0; 
-            left: -9999px; 
+            left: -9999px;
             width: auto; 
             height: auto; 
             visibility: hidden; 
@@ -415,22 +415,66 @@ document.addEventListener('DOMContentLoaded', function() {
         resetAutoMinimizeTimer();
     }
 
-    function findClosestMatch(input) {
-        input = input.toLowerCase(); 
-        const codes = Object.keys(fnkMap);
-        
-        const prefixMatch = codes.find(code => code.startsWith(input));
-        if (prefixMatch) return prefixMatch;
-        
-        const containsMatch = codes.find(code => code.includes(input));
-        if (containsMatch) return containsMatch;
-        
-        const numMatch = codes.find(code => {
-            const num = code.replace('fnk', '');
-            return num.startsWith(input.replace('fnk', ''));
-        });
-        
-        return numMatch || null;
+    function findClosestMatch(searchTerm) {
+        searchTerm = searchTerm.trim().toLowerCase();
+        if (!searchTerm) return null;
+
+        let bestMatchCode = null;
+        let highestRank = -1;
+
+        for (const code in fnkMap) {
+            if (!fnkMap.hasOwnProperty(code)) continue;
+
+            const doc = fnkMap[code];
+            const codeLower = code.toLowerCase();
+            const titleLower = doc.title.toLowerCase();
+
+            let currentRank = -1; 
+
+
+            if (codeLower === searchTerm) {
+                currentRank = 7;
+            } 
+
+            else if (codeLower.startsWith(searchTerm)) {
+                currentRank = 6;
+            }
+
+            else if (titleLower === searchTerm) {
+                currentRank = 5;
+            }
+
+            else if (titleLower.startsWith(searchTerm)) {
+                currentRank = 4;
+            }
+
+            else if (codeLower.includes(searchTerm)) {
+                currentRank = 3;
+            }
+
+            else if (titleLower.includes(searchTerm)) {
+                currentRank = 2;
+            }
+
+            else if (searchTerm.startsWith('fnk')) { 
+                const searchNum = searchTerm.replace('fnk', '');
+                const codeNum = codeLower.replace('fnk', '');
+                if (searchNum && codeNum.startsWith(searchNum)) {
+                     currentRank = 1;
+                }
+            } else if (searchTerm.match(/^\d+$/)) {
+                const codeNum = codeLower.replace('fnk', '');
+                if (codeNum.startsWith(searchTerm)) {
+                    currentRank = 1;
+                }
+            }
+            
+            if (currentRank > highestRank) {
+                highestRank = currentRank;
+                bestMatchCode = code;
+            }
+        }
+        return bestMatchCode; 
     }
 
     function showError(message, type = 'error') {
@@ -459,12 +503,56 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        const matches = Object.keys(fnkMap).filter(
-            key => key.toLowerCase().includes(value)
-        );
+        let matchedCodes = Object.keys(fnkMap).filter(key => {
+            const doc = fnkMap[key];
+            return key.toLowerCase().includes(value) || doc.title.toLowerCase().includes(value);
+        });
+
+        matchedCodes.sort((a, b) => {
+            const aDoc = fnkMap[a];
+            const bDoc = fnkMap[b];
+            const aLower = a.toLowerCase();
+            const bLower = b.toLowerCase();
+            const aTitleLower = aDoc.title.toLowerCase();
+            const bTitleLower = bDoc.title.toLowerCase();
+
+            // Helper function to get a match rank based on value
+            const getRank = (code, title, searchValue) => {
+                const codeLower = code.toLowerCase();
+                const titleLower = title.toLowerCase();
+
+                if (codeLower === searchValue) return 7;
+                if (codeLower.startsWith(searchValue)) return 6;
+                if (titleLower === searchValue) return 5;
+                if (titleLower.startsWith(searchValue)) return 4;
+                if (codeLower.includes(searchValue)) return 3;
+                if (titleLower.includes(searchValue)) return 2;
+                
+                // Numeric part of FNK code starts with
+                if (searchValue.startsWith('fnk') && codeLower.startsWith('fnk')) {
+                    const searchNum = searchValue.replace('fnk', '');
+                    const codeNum = codeLower.replace('fnk', '');
+                    if (searchNum && codeNum.startsWith(searchNum)) return 1;
+                } else if (searchValue.match(/^\d+$/)) {
+                    const codeNum = codeLower.replace('fnk', '');
+                    if (codeNum.startsWith(searchValue)) return 1;
+                }
+                return 0; // No strong match
+            };
+
+            const rankA = getRank(a, aDoc.title, value);
+            const rankB = getRank(b, bDoc.title, value);
+
+            if (rankA !== rankB) {
+                return rankB - rankA; // Higher rank first
+            }
+
+            // Fallback: alphabetical sort by code if ranks are equal
+            return a.localeCompare(b);
+        });
         
-        if (matches.length > 0) {
-            matches.forEach(key => {
+        if (matchedCodes.length > 0) {
+            matchedCodes.forEach(key => {
                 const doc = fnkMap[key];
                 const div = document.createElement('div');
                 div.className = 'fnk-suggestion-item';
