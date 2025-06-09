@@ -152,6 +152,7 @@ window.onload = function () {
 // Add a copy button to the code.
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('div[class^="highlight-"]').forEach(function(codeBlock) {
+
     const faLink = document.createElement('link');
     faLink.rel = 'stylesheet';
     faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
@@ -242,14 +243,14 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "Starter"
         }
     };
-
+    addFontAwesome();   // Load icon fonts
     const widgetContainer = document.createElement('div');
     widgetContainer.id = 'fnk-quick-jump';
     widgetContainer.classList.add('minimized');
 
     // HTML implementation
     widgetContainer.innerHTML = `
-        <div class="minimized-icon">🔍</div>
+        <div class="minimized-icon"><i class="fas fa-search"></i></div>
         
         <div class="fnk-widget">
             <div class="fnk-header">
@@ -270,8 +271,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <div class="fnk-recent-section">
                 <div class="fnk-section-title">
-                    <span>📚 Recent Visits</span>
-                    <span class="fnk-clear-recent" title="Clear History">🗑️</span>
+                    <span><i class="fas fa-history"></i> Recent Visits</span>
+                    <span class="fnk-clear-recent" title="Clear History"><i class="fas fa-trash-alt"></i></span>
                 </div>
                 <div class="fnk-recent-list" id="fnkRecentList"></div>
             </div>
@@ -1125,7 +1126,6 @@ function setupButtonEffects() {
 
 // Initialize when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    addFontAwesome();      // Load icon fonts
     createPageContent();   // Build page structure
     setupButtonEffects();  // Add interactive effects
 });
