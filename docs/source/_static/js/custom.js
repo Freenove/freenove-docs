@@ -152,10 +152,15 @@ window.onload = function () {
 // Add a copy button to the code.
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('div[class^="highlight-"]').forEach(function(codeBlock) {
+    const faLink = document.createElement('link');
+    faLink.rel = 'stylesheet';
+    faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(faLink);
+
     const copyButton = document.createElement('button');
     copyButton.className = 'copy-button';
     copyButton.title = 'Copy to clipboard';
-    copyButton.innerHTML = 'Copy';
+    copyButton.innerHTML = '<i style="position:relative; top:3px;" class="far fa-copy copy-icon"></i>';
     
     codeBlock.style.position = 'relative';
     copyButton.style.position = 'absolute';
@@ -181,8 +186,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const codeContent = tempPre.innerText;
       
       navigator.clipboard.writeText(codeContent).then(() => {
-        copyButton.innerHTML = '<span style="position:relative; top:-3px; padding-right: 13px">✔</span>';
-        setTimeout(() => copyButton.innerHTML = 'Copy', 500);
+        copyButton.innerHTML =  '<i style="position:relative; top:3px;" class="fas fa-check"></i>';
+        setTimeout(() => copyButton.innerHTML = '<i style="position:relative; top:3px;" class="far fa-copy copy-icon"></i>', 500);
       });
     });
   });
