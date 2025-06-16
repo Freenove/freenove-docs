@@ -16,7 +16,7 @@ Starter kits
      -  Name
 
    * -  |FNK0017.MAIN|
-     -  `fnk0017 <https://docs.freenove.com/projects/fnk0017/en/latest/>`__
+     -  :Freenove:`fnk0017 <fnk0017>`
      -  Freenove Ultimate Starter Kit (Compatible with Arduino IDE)
 
    * -  |FNK0034.MAIN|
