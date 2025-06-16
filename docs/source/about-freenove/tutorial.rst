@@ -116,7 +116,7 @@ Tutorial
       - **Freenove Ultimate Starter Kit**
       - .. centered:: `View <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit/archive/master.zip>`__
-      - .. centered:: Online
+      - .. centered:: `Online <https://docs.freenove.com/projects/fnk0017/en/latest/>`__
 
     * - .. centered:: FNK0018	
       - **Freenove Ultimate Starter Kit without Control Board**	
