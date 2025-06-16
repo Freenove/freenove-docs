@@ -13,25 +13,25 @@ Starter kits
      -  SKU
      -  Name
 
-   * -  |FNK0058|
-     -  fnk0058
-     -  Freenove Ultimate Starter Kit for Raspberry Pi Pico 1 2 W H WH
+   * -  .. centered:: |FNK0058|
+     -  .. centered:: :Freenove:`fnk0058 <fnk0058>`
+     -  **Freenove Ultimate Starter Kit for Raspberry Pi Pico 1 2 W H WH**
 
-   * -  |FNK0063|
-     -  fnk0063
-     -  Freenove Super Starter Kit for Raspberry Pi Pico 1 2 W H WH
+   * -  .. centered:: |FNK0063|
+     -  .. centered:: :Freenove:`fnk0063 <fnk0063>`
+     -  **Freenove Super Starter Kit for Raspberry Pi Pico 1 2 W H WH**
 
-   * -  |FNK0064|
-     -  fnk0064
-     -  Freenove Basic Starter Kit for Raspberry Pi Pico 1 2 W H WH
+   * -  .. centered:: |FNK0064|
+     -  .. centered:: :Freenove:`fnk0064 <fnk0064>`
+     -  **Freenove Basic Starter Kit for Raspberry Pi Pico 1 2 W H WH**
 
-   * -  |FNK0065|
-     -  fnk0058
-     -  Freenove Raspberry Pi Pico (W) Board with Headers
+   * -  .. centered:: |FNK0065|
+     -  .. centered:: :Freenove:`fnk0065 <fnk0065>`
+     -  **Freenove Raspberry Pi Pico (W) Board with Headers**
 
-   * -  |FNK0081|
-     -  fnk0081
-     -  Freenove Breakout Board for Raspberry Pi Pico 1 2 W H WH
+   * -  .. centered:: |FNK0081|
+     -  .. centered:: :Freenove:`fnk0081 <fnk0081>`
+     -  **Freenove Breakout Board for Raspberry Pi Pico 1 2 W H WH**
 
 .. |FNK0058| image:: ../_static/products/RaspberryPi-Pico/FNK0058.png    
 .. |FNK0063| image:: ../_static/products/RaspberryPi-Pico/FNK0063.png    
@@ -52,20 +52,21 @@ Robotics kits
      -  SKU
      -  Name
 
-   * -  |FNK0033|
-     -  fnk0033
-     -  Freenove Bipedal Robot Kit for Raspberry Pi Pico 1 2 W H WH
+   * -  .. centered:: |FNK0033|
+     -  .. centered:: :Freenove:`fnk0033 <fnk0033>`
+     -  **Freenove Bipedal Robot Kit for Raspberry Pi Pico 1 2 W H WH**
 
-   * -  |FNK0089_1|
-     -  fnk0089
-     -  Freenove 4WD Car Kit for Raspberry Pi Pico 1 2 W H WH
-   * -  |FNK0089_2|
-     -  fnk0089
-     -  Freenove 4MWD Car Kit for Raspberry Pi Pico 1 2 W H WH
+   * -  .. centered:: |FNK0089_1|
+     -  .. centered:: fnk0089
+     -  **Freenove 4WD Car Kit for Raspberry Pi Pico 1 2 W H WH**
+       
+   * -  .. centered:: |FNK0089_2|
+     -  .. centered:: fnk0089
+     -  **Freenove 4MWD Car Kit for Raspberry Pi Pico 1 2 W H WH**
 
-   * -  |FNK0097|
-     -  fnk0097
-     -  Freenove Omni Wheel Car Kit for Raspberry Pi Pico 1 2 W H WH
+   * -  .. centered:: |FNK0097|
+     -  .. centered:: fnk0097
+     -  **Freenove Omni Wheel Car Kit for Raspberry Pi Pico 1 2 W H WH**
 
 .. |FNK0033| image:: ../_static/products/RaspberryPi-Pico/FNK0033.png
 .. |FNK0089_1| image:: ../_static/products/RaspberryPi-Pico/FNK0089_1.png

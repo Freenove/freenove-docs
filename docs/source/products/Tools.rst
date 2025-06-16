@@ -11,13 +11,13 @@
      -  SKU
      -  Name
 
-   * -  |FNK0087|
-     -  FNK0087
-     -  Freenove Portable Spot Welder
+   * -  .. centered:: |FNK0087|
+     -  .. centered:: :Freenove:`fnk0087 <fnk0087>`
+     -  **Freenove Portable Spot Welder**
        
-   * -  |FNK0088|
-     -  FNK0088
-     -  Freenove Nickel Strip for Spot Welder
+   * -  .. centered:: |FNK0088|
+     -  .. centered:: :Freenove:`fnk0088 <fnk0087>`
+     -  **Freenove Nickel Strip for Spot Welder**
 
 .. |FNK0087| image:: ../_static/products/Tools/FNK0087.png    
 .. |FNK0088| image:: ../_static/products/Tools/FNK0088.png     

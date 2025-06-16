@@ -205,43 +205,164 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    const URL_PREFIX = "https://docs.freenove.com/projects/";
+    const URL_SUFFIX = "/en/latest/";
+
     // List FNK projects
     const fnkMap = {
+        "fnk0017": { 
+            title: "Freenove Ultimate Starter Kit (Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0017${URL_SUFFIX}`, category: "Starter"
+        },
         "fnk0019": { 
-            title: "Freenove Super Starter Kit for Raspberry Pi", 
-            url: "https://docs.freenove.com/projects/fnk0019/en/latest/",
-            category: "Starter"
+            title: "Freenove Super Starter Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0019${URL_SUFFIX}`, category: "Starter"
         },
         "fnk0020": { 
-            title: "Freenove Ultimate Starter Kit for Raspberry Pi", 
-            url: "https://docs.freenove.com/projects/fnk0020/en/latest/",
-            category: "Starter"
+            title: "Freenove Ultimate Starter Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0020${URL_SUFFIX}`, category: "Starter"
         },
         "fnk0022": { 
-            title: "Freenove Basic Starter Kit for Raspberry Pi", 
-            url: "https://docs.freenove.com/projects/fnk0022/en/latest/",
-            category: "Starter"
+            title: "Freenove Basic Starter Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0022${URL_SUFFIX}`, category: "Starter"
         },
         "fnk0023": { 
-            title: "Freenove LCD1602 Starter Kit for Raspberry Pi", 
-            url: "https://docs.freenove.com/projects/fnk0023/en/latest/",
-            category: "Starter"
+            title: "Freenove LCD1602 Starter Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0023${URL_SUFFIX}`, category: "Starter"
         },
         "fnk0024": { 
-            title: "Freenove Ultrasonic Starter Kit for Raspberry Pi", 
-            url: "https://docs.freenove.com/projects/fnk0024/en/latest/",
-            category: "Starter"
+            title: "Freenove Ultrasonic Starter Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0024${URL_SUFFIX}`, category: "Starter"
         },
         "fnk0025": { 
-            title: "Freenove RFID Starter Kit for Raspberry Pi", 
-            url: "https://docs.freenove.com/projects/fnk0025/en/latest/",
-            category: "Starter"
+            title: "Freenove RFID Starter Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0025${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0030": { 
+            title: "Freenove Quadruped Robot Kit with Remote(Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0030${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0031": { 
+            title: "Freenove Hexapod Robot Kit with Remote(Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0031${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0034": { 
+            title: "Freenove RFID Starter Kit V2.0 (Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0034${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0037": { 
+            title: "Freenove Micro:Rover Kit for BBC micro:bit V2", url: `${URL_PREFIX}fnk0037${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0041": { 
+            title: "Freenove 4WD Car Kit(Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0041${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0042": { 
+            title: "Freenove Robot Ant Kit(Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0042${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0043": { 
+            title: "Freenove 4WD Smart Car Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0043${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0045": { 
+            title: "Freenove Ultimate Starter Kit for BBC micro:bit V2", url: `${URL_PREFIX}fnk0045${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0046": { 
+            title: "Freenove Super Starter Kit for ESP32-WROVER CAM", url: `${URL_PREFIX}fnk0046${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0047": { 
+            title: "Freenove Ultimate Starter Kit for ESP32-WROVER CAM", url: `${URL_PREFIX}fnk0047${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0050": { 
+            title: "Freenove Robot Dog Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0050${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0052": { 
+            title: "Freenove Big Hexapod Robot Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0052${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0053": { 
+            title: "Freenove 4WD Car Kit for ESP32-WROVER CAM", url: `${URL_PREFIX}fnk0053${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0054": { 
+            title: "Freenove Projects Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0054${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0058": { 
+            title: "Freenove Ultimate Starter Kit for Raspberry Pi Pico 1 2 W H WH", url: `${URL_PREFIX}fnk0058${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0059": { 
+            title: "Freenove Projects Kit (Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0059${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0060": { 
+            title: "Freenove ESP32-WROVER CAM Board", url: `${URL_PREFIX}fnk0060${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0061": { 
+            title: "Freenove Basic Starter Kit for ESP32-WROVER CAM", url: `${URL_PREFIX}fnk0061${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0062": { 
+            title: "Freenove Robot Dog Kit for ESP32-WROVER CAM", url: `${URL_PREFIX}fnk0062${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0063": { 
+            title: "Freenove Super Starter Kit for Raspberry Pi Pico 1 2 W H WH", url: `${URL_PREFIX}fnk0063${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0064": { 
+            title: "Freenove Basic Starter Kit for Raspberry Pi Pico 1 2 W H WH", url: `${URL_PREFIX}fnk0064${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0065": { 
+            title: "Freenove Raspberry Pi Pico (W) Board with Headers", url: `${URL_PREFIX}fnk0065${URL_SUFFIX}`, category: "Starter"
         },
         "fnk0066": { 
-            title: "Freenove Complete Starter Kit for Raspberry Pi", 
-            url: "https://docs.freenove.com/projects/fnk0066/en/latest/",
-            category: "Starter"
-        }
+            title: "Freenove Complete Starter Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0066${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0067": { 
+            title: "Freenove Control Board (Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0067${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0070": { 
+            title: "Freenove BBC micro:bit V2 Board", url: `${URL_PREFIX}fnk0070${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0071": { 
+            title: "Freenove Super Starter Kit for BBC micro:bit V2", url: `${URL_PREFIX}fnk0071${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0072": { 
+            title: "Freenove Basic Starter Kit for BBC micro:bit V2", url: `${URL_PREFIX}fnk0072${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0073": { 
+            title: "Freenove Ultimate Starter Kit for ESP8266", url: `${URL_PREFIX}fnk0073${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0074": { 
+            title: "Freenove Super Starter Kit for ESP8266", url: `${URL_PREFIX}fnk0074${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0075": { 
+            title: "Freenove Basic Starter Kit for ESP8266", url: `${URL_PREFIX}fnk0075${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0076": { 
+            title: "Freenove ESP8266 Board", url: `${URL_PREFIX}fnk0076${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0079": { 
+            title: "Freenove Breakout Board for Arduino Nano Micro Raspberry Pi Pico 1 2 W ESP32 ESP8266", url: `${URL_PREFIX}fnk0079${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0082": { 
+            title: "Freenove Ultimate Starter Kit for ESP32-S3-WROOM CAM", url: `${URL_PREFIX}fnk0082${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0083": { 
+            title: "Freenove Super Starter Kit for ESP32-S3-WROOM CAM", url: `${URL_PREFIX}fnk0083${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0084": { 
+            title: "Freenove Basic Starter Kit for ESP32-S3-WROOM CAM", url: `${URL_PREFIX}fnk0084${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0085": { 
+            title: "Freenove ESP32-S3-WROOM CAM Board", url: `${URL_PREFIX}fnk0085${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0086": { 
+            title: "Freenove Development Kit for ESP32-S3-WROOM CAM", url: `${URL_PREFIX}fnk0086${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0090": { 
+            title: "Freenove ESP32-WROOM Board", url: `${URL_PREFIX}fnk0090${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0091": { 
+            title: "Freenove Breakout Board for ESP32 / ESP32-S3", url: `${URL_PREFIX}fnk0091${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0092": { 
+            title: "Freenove Complete Starter Kit with Board V5 WiFi Mini(Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0092${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0093": { 
+            title: "Freenove Ultimate Starter Kit with Board V5 WiFi Mini(Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0093${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0094": { 
+            title: "Freenove Super Starter Kit with Board V5 WiFi Mini(Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0094${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0095": { 
+            title: "Freenove Basic Starter Kit with Board V5 WiFi Mini(Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0095${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0096": { 
+            title: "Freenove Control Board V5 Compatible with Arduino UNO R4 WiFi Mini", url: `${URL_PREFIX}fnk0096${URL_SUFFIX}`, category: "Starter"
+        },
     };
     addFontAwesome();   // Load icon fonts
     const widgetContainer = document.createElement('div');

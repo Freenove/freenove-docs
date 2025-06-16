@@ -11,16 +11,16 @@
      -  SKU
      -  Name
 
-   * -  |FNK0079|
-     -  fnk0079
-     -  Freenove Breakout Board for Arduino Nano 
+   * -  .. centered:: |FNK0079|
+     -  .. centered:: :Freenove:`fnk0079 <fnk0079>`
+     -  **Freenove Breakout Board for Arduino Nano**
       
-        Micro Raspberry Pi Pico 1 2 W ESP32 ESP8266
+        **Micro Raspberry Pi Pico 1 2 W ESP32 ESP8266**
        
 
-   * -  |FNK0101|
-     -  fnk0101
-     -  Freenove I2C IIC LCD 1602 2004 Module
+   * -  .. centered:: |FNK0101|
+     -  .. centered:: fnk0101
+     -  **Freenove I2C IIC LCD 1602 2004 Module**
 
-.. |FNK0079| image:: ../_static/products/Components/FNK0079.png    
-.. |FNK0101| image:: ../_static/products/Components/FNK0101.png     
+.. |FNK0079| image:: ../_static/products/Components/FNK0079.png
+.. |FNK0101| image:: ../_static/products/Components/FNK0101.png
