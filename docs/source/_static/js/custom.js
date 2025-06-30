@@ -1159,95 +1159,148 @@ function addFontAwesome() {
 }
 
 /**
- * Creates the main page structure including:
- * - Right-aligned control buttons
- * - Main content container
+ * @file [Robust Version with Diagnostics]
+ * This script creates a set of floating action buttons on the page.
+ *
+ * Key Features:
+ * 1. Robustness: It is designed to work flawlessly in both local development
+ *    and the live Read the Docs server environment. It gracefully handles the
+ *    absence of server-specific data.
+ *
+ * 2. Diagnostics: It includes extensive console logging to provide a clear
+ *    trace of its execution flow, data sources, and final outputs. This is
+ *    invaluable for debugging.
+ *
+ * 3. Safety: It performs granular checks on the `READTHEDOCS_DATA` object
+ *    and its properties, providing fallback values to prevent errors
+ *    caused by `undefined` data.
+ *
+ * Dependencies:
+ * - This script assumes Font Awesome is available for icons (e.g., 'fab fa-github').
+ * - All styling is expected to be provided by an external CSS file.
+ */
+
+/**
+ * The main function responsible for creating and appending the control buttons.
  */
 function createPageContent() {
+    // Initial log to confirm that the function has been called.
+    console.log("createPageContent: Function execution started.");
+
+    // --- 1. Diagnose Environment and Securely Get Data ---
+
+    // Check if the global READTHEDOCS_DATA object exists. This is the primary way
+    // to detect if the script is running in the live Read the Docs environment.
+    const hasRtdData = typeof window.READTHEDOCS_DATA !== 'undefined' && window.READTHEDOCS_DATA !== null;
+    console.log(`createPageContent: Is this a Read the Docs environment? -> ${hasRtdData}`);
+
+    // For debugging, log the entire raw RTD object if it exists.
+    // This is the most crucial piece of information for troubleshooting.
+    if (hasRtdData) {
+        console.log("createPageContent: Raw READTHEDOCS_DATA object content:", window.READTHEDOCS_DATA);
+    }
+
+    // Ensure `rtdData` is a valid object in any environment to prevent errors later.
+    // If `hasRtdData` is false, it becomes a safe, empty object `{}`.
+    const rtdData = hasRtdData ? window.READTHEDOCS_DATA : {};
+
+    // --- 2. Safely Extract Properties with Fallbacks ---
+
+    // By using the OR (||) operator, we provide a default value if a key is missing
+    // from `rtdData`. This is a defensive programming technique to prevent errors like
+    // "Cannot read property '...' of undefined".
+    const project = rtdData.project || 'local-project';
+    const version = rtdData.version || 'latest';
+    const pathParts = window.location.pathname.split('/').filter(part => part);
+    const language = pathParts[0]; // Default language set based on your original link structure.
+
+    // Log the final data being used to build the controls.
+    console.log(`createPageContent: Data in use -> project='${project}', version='${version}', language='${language}'`);
+
+    // --- 3. Construct the Final Download URL ---
+
+    // The download URL is built using the (now guaranteed safe) variables.
+    const htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
+    console.log(`createPageContent: Constructed download URL -> ${htmlDownloadUrl}`);
+
+    // --- 4. Create and Configure DOM Elements ---
+
+    // Check if the controls container already exists to prevent duplicate creation
+    // if the script is accidentally included or executed more than once.
+    if (document.querySelector('.rtd-controls')) {
+        console.warn("createPageContent: Controls container '.rtd-controls' already exists. Halting to prevent duplicates.");
+        return;
+    }
+
     const body = document.body;
-    
-    // Create right-aligned control buttons container
     const rtdControls = document.createElement('div');
     rtdControls.className = 'rtd-controls';
-    
-    // Control buttons configuration
+
+    // An array of objects to configure each button. This data-driven approach makes
+    // it easy to add, remove, or modify buttons in the future.
     const controlsData = [
-        {href: "https://github.com/Freenove", target: "_blank", className: "github-btn", icon: "fab fa-github", tooltip: "GitHub"},
-        {href: "https://freenove.com/", target: "_blank", className: "website-btn", tooltip: "freenove"},
-        {href: "https://www.youtube.com/@Freenove", className: "youtube", icon: "fab fa-youtube", tooltip: "youtube"},
-        {href: "https://docs.freenove.com/en/latest/", target: "_blank", className: "docs-btn", icon: "fas fa-book", tooltip: "freenove-docs"}
+        { href: "https://github.com/Freenove", target: "_blank", className: "github-btn", icon: "fab fa-github", tooltip: "GitHub" },
+        { href: "https://freenove.com/", target: "_blank", className: "website-btn", tooltip: "Freenove Official Website" },
+        { href: "https://www.youtube.com/@Freenove", target: "_blank", className: "youtube", icon: "fab fa-youtube", tooltip: "YouTube" },
+        {
+            href: htmlDownloadUrl,
+            className: "download-btn",
+            icon: "fas fa-download",
+            tooltip: "Download HTML Docs",
+            download: `${project}-${version}.zip` // The 'download' attribute suggests a filename to the browser.
+        }
     ];
-    
-    // Create each control button
+
+    // Loop through the configuration data to build each button element.
     controlsData.forEach(data => {
         const link = document.createElement('a');
         link.href = data.href;
         if (data.target) link.target = data.target;
+        if (data.download) link.setAttribute('download', data.download);
         link.className = `control-btn ${data.className}`;
-        
-        // Add icon if specified
+
+        // If an icon is specified, create an `<i>` element for it.
         if (data.icon) {
             const icon = document.createElement('i');
             icon.className = data.icon;
             link.appendChild(icon);
         }
-        
-        // Add tooltip
+
+        // Every button gets a tooltip for better user experience.
         const tooltip = document.createElement('span');
         tooltip.className = 'tooltip';
         tooltip.textContent = data.tooltip;
         link.appendChild(tooltip);
-        
+
+        // Add the finished button to the main controls container.
         rtdControls.appendChild(link);
     });
-    
+
+    // Append the container with all its buttons to the document body.
     body.appendChild(rtdControls);
-    
-    // Create main content container
-    const container = document.createElement('div');
-    container.className = 'container';
-    
-    body.appendChild(container);
+
+    // This section creates a main content container. You can comment this out
+    // if your page layout already provides one.
+    if (!document.querySelector('.container')) {
+        const container = document.createElement('div');
+        container.className = 'container';
+        body.appendChild(container);
+    }
+
+    console.log("createPageContent: Controls were successfully created and added to the page.");
 }
 
-/**
- * Adds ripple click effects to all control buttons
- * Handles both the animation and delayed navigation
- */
-function setupButtonEffects() {
-    const buttons = document.querySelectorAll('.control-btn');
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Create ripple element
-            const ripple = document.createElement('span');
-            ripple.classList.add('ripple');
-            this.appendChild(ripple);
-            
-            // Calculate click position relative to button
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            // Position ripple at click location
-            ripple.style.left = `${x}px`;
-            ripple.style.top = `${y}px`;
-            
-            // Remove ripple after animation and navigate
-            setTimeout(() => {
-                ripple.remove();
-                // Actual navigation after ripple effect completes
-                window.location.href = this.href;
-            }, 600); // Matches CSS animation duration
-        });
-    });
-}
-
-// Initialize when DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    createPageContent();   // Build page structure
-    setupButtonEffects();  // Add interactive effects
+// --- SCRIPT EXECUTION ---
+// We wrap the entire process in a try...catch block inside a 'DOMContentLoaded' event listener.
+// 1. 'DOMContentLoaded': Ensures the script doesn't run until the basic HTML document is parsed and ready,
+//    which prevents errors from trying to access elements that don't exist yet (like `document.body`).
+// 2. 'try...catch': This is a safety net that catches any unexpected, fatal errors during the script's
+//    execution and logs them cleanly to the console, preventing a script error from crashing other
+//    JavaScript on the page.
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        createPageContent();
+    } catch (error) {
+        console.error("A critical error occurred while executing createPageContent:", error);
+    }
 });
-/* ---------------------------------------------------------------------------------------------- */
