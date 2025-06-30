@@ -1304,3 +1304,4 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("A critical error occurred while executing createPageContent:", error);
     }
 });
+/* ---------------------------------------------------------------------------------------------- */
