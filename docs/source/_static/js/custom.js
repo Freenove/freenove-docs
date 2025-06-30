@@ -1211,8 +1211,7 @@ function createPageContent() {
     // "Cannot read property '...' of undefined".
     const project = rtdData.project || 'local-project';
     const version = rtdData.version || 'latest';
-    const pathParts = window.location.pathname.split('/').filter(part => part);
-    const language = pathParts[0]; // Default language set based on your original link structure.
+    const language = rtdData.language || 'zh-cn'; // Default language set based on your original link structure.
 
     // Log the final data being used to build the controls.
     console.log(`createPageContent: Data in use -> project='${project}', version='${version}', language='${language}'`);
@@ -1220,7 +1219,7 @@ function createPageContent() {
     // --- 3. Construct the Final Download URL ---
 
     // The download URL is built using the (now guaranteed safe) variables.
-    const htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
+    const htmlDownloadUrl = `/_/downloads/${project}/${language}/${version}/htmlzip/`;;
     console.log(`createPageContent: Constructed download URL -> ${htmlDownloadUrl}`);
 
     // --- 4. Create and Configure DOM Elements ---
