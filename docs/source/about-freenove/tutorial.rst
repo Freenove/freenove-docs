@@ -380,7 +380,7 @@ Tutorial
       - **Freenove Raspberry Pi Pico Board**	
       - .. centered:: `View <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit_for_Raspberry_Pi_Pico>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_Ultimate_Starter_Kit_for_Raspberry_Pi_Pico/archive/refs/heads/master.zip>`__
-      - .. centered:: :Freenove:`Online <fnk0065>`
+      - .. centered:: :Freenove:`Online <fnk0058>`
 
     * - .. centered:: FNK0066	
       - **Freenove Complete Starter Kit for Raspberry Pi**	
