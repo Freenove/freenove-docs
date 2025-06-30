@@ -1159,75 +1159,101 @@ function addFontAwesome() {
 }
 
 /**
- * @file [Robust Version with Diagnostics]
- * This script creates a set of floating action buttons on the page.
+ * @fileoverview This script creates a set of floating control buttons (e.g., GitHub, Download)
+ * on a documentation page. It is intelligently designed to work across two different types
+ * of Read the Docs hosting environments:
  *
- * Key Features:
- * 1. Robustness: It is designed to work flawlessly in both local development
- *    and the live Read the Docs server environment. It gracefully handles the
- *    absence of server-specific data.
+ *  1. Subdomain-based: e.g., https://my-project.readthedocs.io/en/latest/
+ *  2. Path-based with Custom Domain: e.g., https://docs.my-site.com/projects/my-project/en/latest/
  *
- * 2. Diagnostics: It includes extensive console logging to provide a clear
- *    trace of its execution flow, data sources, and final outputs. This is
- *    invaluable for debugging.
- *
- * 3. Safety: It performs granular checks on the `READTHEDOCS_DATA` object
- *    and its properties, providing fallback values to prevent errors
- *    caused by `undefined` data.
- *
- * Dependencies:
- * - This script assumes Font Awesome is available for icons (e.g., 'fab fa-github').
- * - All styling is expected to be provided by an external CSS file.
+ * It correctly determines the environment from the URL and generates the appropriate
+ * download link for each case.
  */
 
 /**
- * The main function responsible for creating and appending the control buttons.
+ * Intelligently parses the page's URL to determine the project's configuration.
+ * It identifies the hosting environment and generates the correct download URL format.
+ *
+ * @returns {{project: string, language: string, version: string, htmlDownloadUrl: string}}
+ *          An object containing the parsed configuration and the environment-specific download URL.
+ */
+function getProjectConfigFromUrl() {
+    const hostname = window.location.hostname;
+    const pathParts = window.location.pathname.split('/').filter(part => part !== '');
+
+    // --- Initialize with safe default values ---
+    // These will be used if the URL structure cannot be recognized.
+    let project = 'unknown-project';
+    let language = 'en';
+    let version = 'latest';
+    let htmlDownloadUrl = '#'; // A safe, non-functional link as a fallback.
+
+    console.log("Analyzing URL:", window.location.href);
+
+    /*
+     * --- Core Logic: Differentiate between hosting environments ---
+     * This is the brain of the script. It checks for URL patterns to decide
+     * how to extract data and, critically, how to format the download URL.
+     */
+
+    // Case 1: Check for a "Path-based" structure on a custom domain.
+    // e.g., https://docs.freenove.com/projects/fnk0019/en/latest/
+    if (pathParts.length >= 3 && pathParts[0] === 'projects') {
+        console.log("Detected: 'Path-based' structure (e.g., docs.freenove.com).");
+        
+        project = pathParts[1];
+        language = pathParts[2];
+        version = pathParts[3] || 'latest'; // Fallback if version is missing.
+        
+        // CRITICAL: In this environment, the download URL MUST include the project name.
+        htmlDownloadUrl = `/_/downloads/${project}/${language}/${version}/htmlzip/`;
+
+    }
+    // Case 2: Check for a "Subdomain-based" structure, typical of readthedocs.io.
+    // e.g., https://freenove-sphinx-rst.readthedocs.io/en/latest/
+    else if (hostname.includes('.readthedocs.io')) {
+        console.log("Detected: 'Subdomain-based' structure (e.g., project.readthedocs.io).");
+        
+        project = hostname.split('.')[0];
+        language = pathParts[0] || 'en';
+        version = pathParts[1] || 'latest';
+        
+        // CRITICAL: In this environment, the download URL MUST NOT include the project name.
+        htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
+        
+    }
+    // Case 3: Fallback if the URL structure is unrecognized.
+    else {
+        console.warn("Could not recognize URL structure. The download link might be incorrect.");
+        // We will stick with the safe '#' link, or you could construct a best-guess URL.
+    }
+    
+    // Package and return the final, calculated configuration.
+    const config = { project, language, version, htmlDownloadUrl };
+    console.log("Final Parsed Config:", config);
+    return config;
+}
+
+/**
+ * Creates the control buttons and appends them to the document body.
+ * It uses the configuration object provided by getProjectConfigFromUrl().
  */
 function createPageContent() {
-    // Initial log to confirm that the function has been called.
     console.log("createPageContent: Function execution started.");
 
-    // --- 1. Diagnose Environment and Securely Get Data ---
+    // --- 1. Get Smart Configuration ---
+    // This single call provides all the environment-specific data needed.
+    const config = getProjectConfigFromUrl();
+    const { project, version, htmlDownloadUrl } = config;
 
-    // Check if the global READTHEDOCS_DATA object exists. This is the primary way
-    // to detect if the script is running in the live Read the Docs environment.
-    const hasRtdData = typeof window.READTHEDOCS_DATA !== 'undefined' && window.READTHEDOCS_DATA !== null;
-    console.log(`createPageContent: Is this a Read the Docs environment? -> ${hasRtdData}`);
+    console.log(`Using data: project='${project}', version='${version}'`);
+    console.log(`Using final download URL: ${htmlDownloadUrl}`);
 
-    // For debugging, log the entire raw RTD object if it exists.
-    // This is the most crucial piece of information for troubleshooting.
-    if (hasRtdData) {
-        console.log("createPageContent: Raw READTHEDOCS_DATA object content:", window.READTHEDOCS_DATA);
-    }
+    // --- 2. Create and Configure DOM Elements ---
 
-    // Ensure `rtdData` is a valid object in any environment to prevent errors later.
-    // If `hasRtdData` is false, it becomes a safe, empty object `{}`.
-    const rtdData = hasRtdData ? window.READTHEDOCS_DATA : {};
-
-    // --- 2. Safely Extract Properties with Fallbacks ---
-
-    // By using the OR (||) operator, we provide a default value if a key is missing
-    // from `rtdData`. This is a defensive programming technique to prevent errors like
-    // "Cannot read property '...' of undefined".
-    const project = rtdData.project || 'local-project';
-    const version = rtdData.version || 'latest';
-    const language = rtdData.language || 'zh-cn'; // Default language set based on your original link structure.
-
-    // Log the final data being used to build the controls.
-    console.log(`createPageContent: Data in use -> project='${project}', version='${version}', language='${language}'`);
-
-    // --- 3. Construct the Final Download URL ---
-
-    // The download URL is built using the (now guaranteed safe) variables.
-    const htmlDownloadUrl = `/_/downloads/${project}/${language}/${version}/htmlzip/`;;
-    console.log(`createPageContent: Constructed download URL -> ${htmlDownloadUrl}`);
-
-    // --- 4. Create and Configure DOM Elements ---
-
-    // Check if the controls container already exists to prevent duplicate creation
-    // if the script is accidentally included or executed more than once.
+    // Guard clause: Prevent creating duplicate controls if the script is run more than once.
     if (document.querySelector('.rtd-controls')) {
-        console.warn("createPageContent: Controls container '.rtd-controls' already exists. Halting to prevent duplicates.");
+        console.warn("Controls container already exists. Halting to prevent duplicates.");
         return;
     }
 
@@ -1235,14 +1261,14 @@ function createPageContent() {
     const rtdControls = document.createElement('div');
     rtdControls.className = 'rtd-controls';
 
-    // An array of objects to configure each button. This data-driven approach makes
-    // it easy to add, remove, or modify buttons in the future.
+    // A data-driven approach to defining the buttons.
+    // This makes it easy to add, remove, or modify buttons in the future.
     const controlsData = [
         { href: "https://github.com/Freenove", target: "_blank", className: "github-btn", icon: "fab fa-github", tooltip: "GitHub" },
         { href: "https://freenove.com/", target: "_blank", className: "website-btn", tooltip: "Freenove Official Website" },
         { href: "https://www.youtube.com/@Freenove", target: "_blank", className: "youtube", icon: "fab fa-youtube", tooltip: "YouTube" },
         {
-            href: htmlDownloadUrl,
+            href: htmlDownloadUrl, // Use the intelligently generated download URL.
             className: "download-btn",
             icon: "fas fa-download",
             tooltip: "Download HTML Docs",
@@ -1254,18 +1280,21 @@ function createPageContent() {
     controlsData.forEach(data => {
         const link = document.createElement('a');
         link.href = data.href;
+        
+        // Set optional attributes only if they exist in the data.
         if (data.target) link.target = data.target;
         if (data.download) link.setAttribute('download', data.download);
+        
         link.className = `control-btn ${data.className}`;
 
-        // If an icon is specified, create an `<i>` element for it.
+        // If an icon class is provided, create the <i> element for it.
         if (data.icon) {
             const icon = document.createElement('i');
             icon.className = data.icon;
             link.appendChild(icon);
         }
 
-        // Every button gets a tooltip for better user experience.
+        // Every button gets a tooltip for a better user experience.
         const tooltip = document.createElement('span');
         tooltip.className = 'tooltip';
         tooltip.textContent = data.tooltip;
@@ -1275,28 +1304,21 @@ function createPageContent() {
         rtdControls.appendChild(link);
     });
 
-    // Append the container with all its buttons to the document body.
+    // Finally, attach the container with all its buttons to the document body.
     body.appendChild(rtdControls);
-
-    // This section creates a main content container. You can comment this out
-    // if your page layout already provides one.
-    if (!document.querySelector('.container')) {
-        const container = document.createElement('div');
-        container.className = 'container';
-        body.appendChild(container);
-    }
-
-    console.log("createPageContent: Controls were successfully created and added to the page.");
+    
+    console.log("Controls were successfully created and added to the page.");
 }
 
-// --- SCRIPT EXECUTION ---
-// We wrap the entire process in a try...catch block inside a 'DOMContentLoaded' event listener.
-// 1. 'DOMContentLoaded': Ensures the script doesn't run until the basic HTML document is parsed and ready,
-//    which prevents errors from trying to access elements that don't exist yet (like `document.body`).
-// 2. 'try...catch': This is a safety net that catches any unexpected, fatal errors during the script's
-//    execution and logs them cleanly to the console, preventing a script error from crashing other
-//    JavaScript on the page.
+
+/* --- SCRIPT EXECUTION ENTRY POINT --- */
+
+// We wrap the entire process in a 'DOMContentLoaded' event listener.
+// This ensures the script doesn't run until the basic HTML document is parsed and ready,
+// which prevents errors from trying to access elements that don't exist yet (like `document.body`).
 document.addEventListener('DOMContentLoaded', () => {
+    // A try...catch block is a safety net that catches any unexpected, fatal errors
+    // during the script's execution, preventing them from crashing other JavaScript on the page.
     try {
         createPageContent();
     } catch (error) {
