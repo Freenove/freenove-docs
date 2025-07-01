@@ -1188,8 +1188,6 @@ function getProjectConfigFromUrl() {
     let version = 'latest';
     let htmlDownloadUrl = '#'; // A safe, non-functional link as a fallback.
 
-    console.log("Analyzing URL:", window.location.href);
-
     /*
      * --- Core Logic: Differentiate between hosting environments ---
      * This is the brain of the script. It checks for URL patterns to decide
@@ -1199,7 +1197,6 @@ function getProjectConfigFromUrl() {
     // Case 1: Check for a "Path-based" structure on a custom domain.
     // e.g., https://docs.freenove.com/projects/fnk0019/en/latest/
     if (pathParts.length >= 3 && pathParts[0] === 'projects') {
-        console.log("Detected: 'Path-based' structure (e.g., docs.freenove.com).");
         
         project = pathParts[1];
         language = pathParts[2];
@@ -1212,7 +1209,6 @@ function getProjectConfigFromUrl() {
     // Case 2: Check for a "Subdomain-based" structure, typical of readthedocs.io.
     // e.g., https://freenove-sphinx-rst.readthedocs.io/en/latest/
     else if (hostname.includes('.readthedocs.io')) {
-        console.log("Detected: 'Subdomain-based' structure (e.g., project.readthedocs.io).");
         
         project = hostname.split('.')[0];
         language = pathParts[0] || 'en';
@@ -1222,6 +1218,14 @@ function getProjectConfigFromUrl() {
         htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
         
     }
+    else if (hostname.includes('docs.freenove.com')) {
+        
+        language = pathParts[0] || 'en';
+        version = pathParts[1] || 'latest';
+
+        htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
+
+    }
     // Case 3: Fallback if the URL structure is unrecognized.
     else {
         console.warn("Could not recognize URL structure. The download link might be incorrect.");
@@ -1230,7 +1234,6 @@ function getProjectConfigFromUrl() {
     
     // Package and return the final, calculated configuration.
     const config = { project, language, version, htmlDownloadUrl };
-    console.log("Final Parsed Config:", config);
     return config;
 }
 
@@ -1245,9 +1248,6 @@ function createPageContent() {
     // This single call provides all the environment-specific data needed.
     const config = getProjectConfigFromUrl();
     const { project, version, htmlDownloadUrl } = config;
-
-    console.log(`Using data: project='${project}', version='${version}'`);
-    console.log(`Using final download URL: ${htmlDownloadUrl}`);
 
     // --- 2. Create and Configure DOM Elements ---
 
@@ -1306,8 +1306,6 @@ function createPageContent() {
 
     // Finally, attach the container with all its buttons to the document body.
     body.appendChild(rtdControls);
-    
-    console.log("Controls were successfully created and added to the page.");
 }
 
 
