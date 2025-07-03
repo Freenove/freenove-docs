@@ -197,6 +197,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /* ---------------------------------------------------------------------------------------------- */
+/* description: About the four circular controls
+
+ * author: vegetable-syc
+ */
+
+/**
+ * Adds Font Awesome CSS library to the document head
+ * Uses CDN for fast loading
+ */
+function addFontAwesome() {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(link);
+}
+
 /* description: About Online Document Navigation
 
  * author: vegetable-syc
@@ -1140,118 +1156,82 @@ document.head.appendChild(style);
 
 
 /* ---------------------------------------------------------------------------------------------- */
-/* description: About the four circular controls
-
- * author: vegetable-syc
-
- * date: 2025/06/06
+/**
+ * @fileoverview This script dynamically creates page control buttons and a download modal.
+ * It intelligently determines the correct download links based on the current page's URL structure.
  */
 
 /**
- * Adds Font Awesome CSS library to the document head
- * Uses CDN for fast loading
- */
-function addFontAwesome() {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-    document.head.appendChild(link);
-}
-
-/**
- * @fileoverview This script creates a set of floating control buttons (e.g., GitHub, Download)
- * on a documentation page. It is intelligently designed to work across two different types
- * of Read the Docs hosting environments:
+ * Parses the current window URL to determine the project name, language, version,
+ * and constructs the appropriate download links for both EPUB and HTML formats.
  *
- *  1. Subdomain-based: e.g., https://my-project.readthedocs.io/en/latest/
- *  2. Path-based with Custom Domain: e.g., https://docs.my-site.com/projects/my-project/en/latest/
- *
- * It correctly determines the environment from the URL and generates the appropriate
- * download link for each case.
- */
-
-/**
- * Intelligently parses the page's URL to determine the project's configuration.
- * It identifies the hosting environment and generates the correct download URL format.
- *
- * @returns {{project: string, language: string, version: string, htmlDownloadUrl: string}}
- *          An object containing the parsed configuration and the environment-specific download URL.
+ * @returns {object} A configuration object containing project details and download URLs.
+ * @property {string} project - The identified project name (e.g., 'fnk0020').
+ * @property {string} language - The identified language code (e.g., 'en').
+ * @property {string} version - The identified version (e.g., 'latest').
+ * @property {string} htmlDownloadUrl - The fully constructed URL for the HTML zip download.
+ * @property {string} epubDownloadUrl - The fully constructed URL for the EPUB download.
  */
 function getProjectConfigFromUrl() {
     const hostname = window.location.hostname;
     const pathParts = window.location.pathname.split('/').filter(part => part !== '');
 
     // --- Initialize with safe default values ---
-    // These will be used if the URL structure cannot be recognized.
     let project = 'unknown-project';
     let language = 'en';
     let version = 'latest';
-    let htmlDownloadUrl = '#'; // A safe, non-functional link as a fallback.
+    let htmlDownloadUrl = '#'; // Fallback to a non-functional link
+    let epubDownloadUrl = '#'; // Fallback for the EPUB link
 
-    /*
-     * --- Core Logic: Differentiate between hosting environments ---
-     * This is the brain of the script. It checks for URL patterns to decide
-     * how to extract data and, critically, how to format the download URL.
-     */
+    // --- Logic to differentiate between hosting environments and build URLs ---
 
-    // Case 1: Check for a "Path-based" structure on a custom domain.
-    // e.g., https://docs.freenove.com/projects/fnk0019/en/latest/
+    // Case 1: "Path-based" structure (e.g., https://docs.freenove.com/projects/fnk0019/en/latest/)
     if (pathParts.length >= 3 && pathParts[0] === 'projects') {
         
         project = pathParts[1];
         language = pathParts[2];
-        version = pathParts[3] || 'latest'; // Fallback if version is missing.
+        version = pathParts[3] || 'latest';
         
-        // CRITICAL: In this environment, the download URL MUST include the project name.
+        // In this structure, the download URL requires the project name.
         htmlDownloadUrl = `/_/downloads/${project}/${language}/${version}/htmlzip/`;
+        epubDownloadUrl = `/_/downloads/${project}/${language}/${version}/epub/`;
 
     }
-    // Case 2: Check for a "Subdomain-based" structure, typical of readthedocs.io.
-    // e.g., https://freenove-sphinx-rst.readthedocs.io/en/latest/
+    // Case 2: "Subdomain-based" structure (e.g., https://freenove-sphinx-rst.readthedocs.io/en/latest/)
     else if (hostname.includes('.readthedocs.io')) {
         
         project = hostname.split('.')[0];
         language = pathParts[0] || 'en';
         version = pathParts[1] || 'latest';
         
-        // CRITICAL: In this environment, the download URL MUST NOT include the project name.
+        // In this structure, the project name is NOT included in the download URL path.
         htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
+        epubDownloadUrl = `/_/downloads/${language}/${version}/epub/`;
         
     }
-    else if (hostname.includes('docs.freenove.com')) {
-        
-        language = pathParts[0] || 'en';
-        version = pathParts[1] || 'latest';
-
-        htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
-
-    }
-    // Case 3: Fallback if the URL structure is unrecognized.
+    // Case 3: Fallback for unrecognized URL structures.
     else {
-        console.warn("Could not recognize URL structure. The download link might be incorrect.");
-        // We will stick with the safe '#' link, or you could construct a best-guess URL.
+        console.warn("Could not recognize URL structure. Download links might be incorrect.");
     }
     
-    // Package and return the final, calculated configuration.
-    const config = { project, language, version, htmlDownloadUrl };
+    // Package and return the final configuration.
+    const config = { project, language, version, htmlDownloadUrl, epubDownloadUrl };
     return config;
 }
 
 /**
- * Creates the control buttons and appends them to the document body.
- * It uses the configuration object provided by getProjectConfigFromUrl().
+ * Creates and appends the page controls and the hidden download modal to the document.
+ * It also sets up all necessary event listeners for interactivity.
  */
 function createPageContent() {
-    console.log("createPageContent: Function execution started.");
 
-    // --- 1. Get Smart Configuration ---
-    // This single call provides all the environment-specific data needed.
+    // --- 1. Get Environment-Specific Configuration ---
     const config = getProjectConfigFromUrl();
-    const { project, version, htmlDownloadUrl } = config;
+    const { project, version, htmlDownloadUrl, epubDownloadUrl } = config;
 
-    // --- 2. Create and Configure DOM Elements ---
+    // --- 2. Create the Floating Action Buttons ---
 
-    // Guard clause: Prevent creating duplicate controls if the script is run more than once.
+    // Guard clause: Prevent creating duplicate controls.
     if (document.querySelector('.rtd-controls')) {
         console.warn("Controls container already exists. Halting to prevent duplicates.");
         return;
@@ -1261,66 +1241,173 @@ function createPageContent() {
     const rtdControls = document.createElement('div');
     rtdControls.className = 'rtd-controls';
 
-    // A data-driven approach to defining the buttons.
-    // This makes it easy to add, remove, or modify buttons in the future.
+    // A data-driven approach to define buttons. Makes adding/removing buttons clean and easy.
     const controlsData = [
         { href: "https://github.com/Freenove", target: "_blank", className: "github-btn", icon: "fab fa-github", tooltip: "GitHub" },
         { href: "https://freenove.com/", target: "_blank", className: "website-btn", tooltip: "Freenove Official Website" },
         { href: "https://www.youtube.com/@Freenove", target: "_blank", className: "youtube", icon: "fab fa-youtube", tooltip: "YouTube" },
         {
-            href: htmlDownloadUrl, // Use the intelligently generated download URL.
+            href: "javascript:void(0);", // Prevent default link behavior (page jump).
+            id: "download-trigger-btn",   // Unique ID to attach a click listener.
             className: "download-btn",
             icon: "fas fa-download",
-            tooltip: "Download HTML Docs",
-            download: `${project}-${version}.zip` // The 'download' attribute suggests a filename to the browser.
+            tooltip: "Download Docs"     // Updated tooltip text.
         }
     ];
 
-    // Loop through the configuration data to build each button element.
+    // Loop through the data to build each button.
     controlsData.forEach(data => {
         const link = document.createElement('a');
         link.href = data.href;
         
-        // Set optional attributes only if they exist in the data.
         if (data.target) link.target = data.target;
-        if (data.download) link.setAttribute('download', data.download);
+        if (data.id) link.id = data.id;
         
         link.className = `control-btn ${data.className}`;
 
-        // If an icon class is provided, create the <i> element for it.
         if (data.icon) {
             const icon = document.createElement('i');
             icon.className = data.icon;
             link.appendChild(icon);
         }
 
-        // Every button gets a tooltip for a better user experience.
         const tooltip = document.createElement('span');
         tooltip.className = 'tooltip';
         tooltip.textContent = data.tooltip;
         link.appendChild(tooltip);
 
-        // Add the finished button to the main controls container.
         rtdControls.appendChild(link);
     });
 
-    // Finally, attach the container with all its buttons to the document body.
     body.appendChild(rtdControls);
+
+    // --- 3. Create the Download Modal (Initially Hidden) ---
+    const modal = document.createElement('div');
+    modal.className = 'download-modal';
+    modal.id = 'downloadModal';
+    // Use a template literal to construct the inner HTML of the modal dynamically.
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="modal-close" title="Close">×</span>
+            <h3>Choose Download Format</h3>
+            <div class="modal-links">
+                <a href="${epubDownloadUrl}" download="${project}-${version}.epub">Download EPUB</a>
+                <a href="${htmlDownloadUrl}" download="${project}-${version}.zip">Download HTML (.zip)</a>
+            </div>
+        </div>
+    `;
+    body.appendChild(modal);
+
+    // --- 4. Set Up Event Listeners for the Modal ---
+    const downloadTriggerBtn = document.getElementById('download-trigger-btn');
+    const downloadModal = document.getElementById('downloadModal');
+    const closeModalBtn = downloadModal.querySelector('.modal-close');
+
+    // Event: Click the download button to show the modal.
+    downloadTriggerBtn.addEventListener('click', (event) => {
+        event.preventDefault(); // Extra precaution to stop any link behavior.
+        downloadModal.style.display = 'flex'; // Use 'flex' to activate the flexbox centering.
+    });
+
+    // Event: Click the 'x' to close the modal.
+    closeModalBtn.addEventListener('click', () => {
+        downloadModal.style.display = 'none';
+    });
+
+    // Event: Click the dark overlay (outside the modal content) to close it.
+    window.addEventListener('click', (event) => {
+        if (event.target === downloadModal) {
+            downloadModal.style.display = 'none';
+        }
+    });
 }
 
 
 /* --- SCRIPT EXECUTION ENTRY POINT --- */
 
-// We wrap the entire process in a 'DOMContentLoaded' event listener.
-// This ensures the script doesn't run until the basic HTML document is parsed and ready,
-// which prevents errors from trying to access elements that don't exist yet (like `document.body`).
+// Wait until the basic HTML document structure is ready before running the script.
 document.addEventListener('DOMContentLoaded', () => {
-    // A try...catch block is a safety net that catches any unexpected, fatal errors
-    // during the script's execution, preventing them from crashing other JavaScript on the page.
+    // Use a try...catch block as a safety net for any unexpected runtime errors.
     try {
         createPageContent();
     } catch (error) {
-        console.error("A critical error occurred while executing createPageContent:", error);
+        console.error("A critical error occurred while initializing page controls:", error);
     }
 });
+
 /* ---------------------------------------------------------------------------------------------- */
+
+// 监听 DOMContentLoaded 事件，确保在整个 HTML 文档加载并解析完毕后才执行脚本。
+// 这样可以避免因元素不存在而导致的脚本错误。
+// document.addEventListener('DOMContentLoaded', function() {
+
+//     // --- 1. 定义一个用于 sessionStorage 的键名 ---
+//     // 这个键名是唯一的，用于在 sessionStorage 中存储和读取公告框的状态。
+//     const announcementClosedKey = 'isAnnouncementClosed';
+
+//     // --- 2. 检查用户是否已经关闭过公告框 ---
+//     // 从 sessionStorage 中读取键名为 announcementClosedKey 的值。
+//     // 如果值为 'true'，说明用户在本会话中已经关闭过公告框。
+//     if (sessionStorage.getItem(announcementClosedKey) === 'true') {
+//         // 如果已经关闭过，则直接退出函数，不执行后面的创建和显示逻辑。
+//         return; 
+//     }
+
+//     // --- 3. 定义公告框的 HTML 结构 ---
+//     // 只有在用户没有关闭过公告框的情况下，才会执行到这里。
+//     const announcementHTML = `
+//         <div id="custom-announcement" class="rtd-announcement-panel">
+//             <span id="close-announcement" class="announcement-close" title="关闭">×</span>
+//             <div class="announcement-title">
+//                 <span class="announcement-icon">📃</span>
+//                 <span>重要公告</span>
+//             </div>
+//             <div class="announcement-content">
+//                 <p>
+//                     当前线上文档正处于 <strong>测试阶段</strong>，部分内容可能仍在完善中。
+//                 </p>
+//                 <p style="margin-top: 10px;">
+//                     请<strong>以最新的 <a href="#">PDF 教程</a> 为最终标准</strong>。感谢您的理解与支持！
+//                 </p>
+//             </div>
+//             <hr>
+//             <div class="announcement-title">
+//                 <span class="announcement-icon">📖</span>
+//                 <span>功能说明</span>
+//             </div>
+//             <div class="announcement-content">
+//                 <p>
+//                     1、网页右侧🔍为全局搜索，点开后在输入框中输入fnk序号可以跳转到对应的教程中（例如fnk0019）。
+//                 </p>
+//                 <p>
+//                     2、如果需要下载该教程的离线HTML版本或EPUB格式，可以点击教程右侧的下载图标。
+//                 </p>
+//             </div>
+//         </div>
+//     `;
+
+//     // --- 4. 将 HTML 注入到页面中 ---
+//     // 'beforeend' 表示将 HTML 添加到 body 元素的最后一个子元素之后。
+//     document.body.insertAdjacentHTML('beforeend', announcementHTML);
+
+//     // --- 5. 获取元素并为关闭按钮添加事件监听器 ---
+//     const announcementPanel = document.getElementById('custom-announcement');
+//     const closeButton = document.getElementById('close-announcement');
+
+//     // 健壮性检查：确保元素成功被获取，防止因ID错误等问题导致脚本中断。
+//     if (announcementPanel && closeButton) {
+//         // 为关闭按钮绑定点击事件。
+//         closeButton.addEventListener('click', function() {
+//             // 第一步：隐藏面板（和原来一样）。
+//             announcementPanel.style.display = 'none';
+
+//             // 第二步（核心优化）：将关闭状态记录到 sessionStorage 中。
+//             // 这样，在当前浏览器会话中，即使用户跳转到其他页面，这个记录也会保留下来。
+//             sessionStorage.setItem(announcementClosedKey, 'true');
+//         });
+//     } else {
+//         // 如果找不到元素，在控制台打印警告，方便调试。
+//         console.warn('未能找到公告框或其关闭按钮，功能可能无法正常工作。');
+//     }
+
+// });
