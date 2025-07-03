@@ -1197,10 +1197,18 @@ function getProjectConfigFromUrl() {
         epubDownloadUrl = `/_/downloads/${project}/${language}/${version}/epub/`;
 
     }
+    else if (hostname.includes('docs.freenove.com')) {
+        
+        language = pathParts[0] || 'en';
+        version = pathParts[1] || 'latest';
+
+        htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
+        epubDownloadUrl = `/_/downloads/${language}/${version}/epub/`;
+
+    }
     // Case 2: "Subdomain-based" structure (e.g., https://freenove-sphinx-rst.readthedocs.io/en/latest/)
     else if (hostname.includes('.readthedocs.io')) {
         
-        project = hostname.split('.')[0];
         language = pathParts[0] || 'en';
         version = pathParts[1] || 'latest';
         
