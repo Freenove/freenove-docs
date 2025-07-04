@@ -94,6 +94,52 @@ table.freenove-ow thead tr:nth-child(odd) {
   font-family: "DengXian";              /* Set font to DengXian */
   font-size: 20px;
 }
+
+.text-center th,
+.text-center td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* DIY Zebra */
+.zebra tbody tr:nth-child(odd) {
+  background-color: var(--tr-odd-row-color, #ffffff); 
+}
+
+.zebra tbody tr:nth-child(even) {
+  background-color: var(--tr-even-row-color, #f7e0c5);
+}
+
+.zebra thead tr:nth-child(odd) {
+  background-color: var(--th-even-row-color, #ff7b00);
+}
+
+.zebra td,
+.zebra th{
+    border: 1px solid var(--border-color, #000000) !important;
+}
+
+.zebra-theme-pink {
+  --tr-odd-row-color: #e3f2fd;  
+  --tr-even-row-color: #ff4cae42;
+  --th-even-row-color: #ff4caf;
+  border-color: #000000
+}
+
+.zebra-theme-blue {
+  --tr-odd-row-color: #e3f2fd;  
+  --tr-even-row-color: #bbdefb;
+  --th-even-row-color: #0066ff;
+  border-color: #000000
+}
+
+.zebra-theme-green {
+  --tr-odd-row-color: #e8f5e9; 
+  --tr-even-row-color: #c8e6c9; 
+  --th-even-row-color: #00ff00;
+  --border-color: #000000;
+}
+
 /* ---------------------------------------------------------------------------------------------- */
 
 
