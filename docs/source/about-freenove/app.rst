@@ -2,7 +2,7 @@
 App
 ###########
 
-.. admonition:: :xx-large:`For Android`
+.. admonition:: :x-large:`For Android`
     
     .. image:: /_static/images/App_google.png
         :width: 45%
@@ -21,7 +21,7 @@ App
 
 |
 
-.. admonition:: :xx-large:`For iPhone`
+.. admonition:: :x-large:`For iPhone`
     
     .. image:: /_static/images/App_iphone.png
         :width: 45%
