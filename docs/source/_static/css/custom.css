@@ -104,25 +104,34 @@ table.freenove-ow thead tr:nth-child(odd) {
 /* DIY Zebra */
 .zebra tbody tr:nth-child(odd) {
   background-color: var(--tr-odd-row-color, #ffffff); 
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .zebra tbody tr:nth-child(even) {
   background-color: var(--tr-even-row-color, #f7e0c5);
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .zebra thead tr:nth-child(odd) {
   background-color: var(--th-even-row-color, #ff7b00);
+  color: var(--text-color, #ffffff);
+  font-weight: bolder;
+  font-size: 25px;
 }
 
 .zebra td,
 .zebra th{
     border: 1px solid var(--border-color, #000000) !important;
+    padding: 14px 16px !important;
 }
 
 .zebra-theme-pink {
   --tr-odd-row-color: #e3f2fd;  
   --tr-even-row-color: #ff4cae42;
   --th-even-row-color: #ff4caf;
+  --text-color: #ffffff;
   border-color: #000000
 }
 
@@ -130,6 +139,7 @@ table.freenove-ow thead tr:nth-child(odd) {
   --tr-odd-row-color: #e3f2fd;  
   --tr-even-row-color: #bbdefb;
   --th-even-row-color: #0066ff;
+  --text-color: #ffffff;
   border-color: #000000
 }
 
@@ -137,6 +147,7 @@ table.freenove-ow thead tr:nth-child(odd) {
   --tr-odd-row-color: #e8f5e9; 
   --tr-even-row-color: #c8e6c9; 
   --th-even-row-color: #00ff00;
+  --text-color: #ffffff;
   --border-color: #000000;
 }
 
