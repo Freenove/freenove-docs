@@ -56,6 +56,17 @@
  * date: 2025/05/27
  */
 
+.text-center th,
+.text-center td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-line th,
+.table-line td {
+    border: 1px solid #000000 !important;
+}
+
 /* Orange and white zebra-striped table */
 table.freenove-ow {
   border-collapse: collapse;            /* Collapse table borders (no gaps) */
@@ -93,12 +104,6 @@ table.freenove-ow thead tr:nth-child(odd) {
   font-weight: bolder;
   font-family: "DengXian";              /* Set font to DengXian */
   font-size: 20px;
-}
-
-.text-center th,
-.text-center td {
-    text-align: center;
-    vertical-align: middle;
 }
 
 /* DIY Zebra */
