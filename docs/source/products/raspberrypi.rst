@@ -81,7 +81,7 @@ Robotics kits
      -  **Freenove 4WD Smart Car Kit for Raspberry Pi**
 
    * -  .. centered:: |FNK0043B.MAIN|
-     -  .. centered:: fnk0043B
+     -  .. centered:: :Freenove:`fnk0043 <fnk0043>`
      -  **Freenove 4MWD Smart Car Kit for Raspberry Pi**
 
    * -  .. centered:: |FNK0050.MAIN|

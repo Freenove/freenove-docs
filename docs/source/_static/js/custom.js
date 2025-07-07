@@ -235,6 +235,9 @@ document.addEventListener('DOMContentLoaded', function() {
         "fnk0020": { 
             title: "Freenove Ultimate Starter Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0020${URL_SUFFIX}`, category: "Starter"
         },
+        "fnk0021": { 
+            title: "Freenove Three-wheeled Smart Car Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0021${URL_SUFFIX}`, category: "Starter"
+        },
         "fnk0022": { 
             title: "Freenove Basic Starter Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0022${URL_SUFFIX}`, category: "Starter"
         },
@@ -253,8 +256,14 @@ document.addEventListener('DOMContentLoaded', function() {
         "fnk0031": { 
             title: "Freenove Hexapod Robot Kit with Remote(Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0031${URL_SUFFIX}`, category: "Robotics"
         },
+        "fnk0033": { 
+            title: "Freenove Bipedal Robot Kit for Raspberry Pi Pico (W)", url: `${URL_PREFIX}fnk0033${URL_SUFFIX}`, category: "Starter"
+        },
         "fnk0034": { 
             title: "Freenove RFID Starter Kit V2.0 (Compatible with Arduino IDE)", url: `${URL_PREFIX}fnk0034${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0036": { 
+            title: "Freenove Robot Arm Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0036${URL_SUFFIX}`, category: "Robotics"
         },
         "fnk0037": { 
             title: "Freenove Micro:Rover Kit for BBC micro:bit V2", url: `${URL_PREFIX}fnk0037${URL_SUFFIX}`, category: "Robotics"
@@ -288,6 +297,12 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "fnk0054": { 
             title: "Freenove Projects Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0054${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0055": { 
+            title: "Freenove Touchscreen Monitor", url: `${URL_PREFIX}fnk0055${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0056": { 
+            title: "Freenove Camera Module for Raspberry Pi", url: `${URL_PREFIX}fnk0056${URL_SUFFIX}`, category: "Starter"
         },
         "fnk0058": { 
             title: "Freenove Ultimate Starter Kit for Raspberry Pi Pico 1 2 W H WH", url: `${URL_PREFIX}fnk0058${URL_SUFFIX}`, category: "Starter"
@@ -340,8 +355,20 @@ document.addEventListener('DOMContentLoaded', function() {
         "fnk0076": { 
             title: "Freenove ESP8266 Board", url: `${URL_PREFIX}fnk0076${URL_SUFFIX}`, category: "Starter"
         },
+        "fnk0077": { 
+            title: "Freenove Tank Robot Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0077${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0078": { 
+            title: "Freenove Touchscreen Monitor for Raspberry Pi", url: `${URL_PREFIX}fnk0078${URL_SUFFIX}`, category: "Starter"
+        },
         "fnk0079": { 
             title: "Freenove Breakout Board for Arduino Nano Micro Raspberry Pi Pico 1 2 W ESP32 ESP8266", url: `${URL_PREFIX}fnk0079${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0080": { 
+            title: "Freenove Breakout Board for Raspberry Pi", url: `${URL_PREFIX}fnk0080${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0081": { 
+            title: "Freenove Breakout Board for Raspberry Pi Pico", url: `${URL_PREFIX}fnk0081${URL_SUFFIX}`, category: "Starter"
         },
         "fnk0082": { 
             title: "Freenove Ultimate Starter Kit for ESP32-S3-WROOM CAM", url: `${URL_PREFIX}fnk0082${URL_SUFFIX}`, category: "Starter"
@@ -357,6 +384,12 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "fnk0086": { 
             title: "Freenove Development Kit for ESP32-S3-WROOM CAM", url: `${URL_PREFIX}fnk0086${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0087": { 
+            title: "Freenove Spot Welder", url: `${URL_PREFIX}fnk0087${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0089": { 
+            title: "	Freenove 4WD Car Kit for Raspberry Pi Pico (W)", url: `${URL_PREFIX}fnk0089${URL_SUFFIX}`, category: "Starter"
         },
         "fnk0090": { 
             title: "Freenove ESP32-WROOM Board", url: `${URL_PREFIX}fnk0090${URL_SUFFIX}`, category: "Starter"
@@ -378,6 +411,27 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "fnk0096": { 
             title: "Freenove Control Board V5 Compatible with Arduino UNO R4 WiFi Mini", url: `${URL_PREFIX}fnk0096${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0097": { 
+            title: "Freenove Omni Wheel Car Kit for Raspberry Pi Pico", url: `${URL_PREFIX}fnk0097${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0098": { 
+            title: "Freenove M.2 NVMe Adapter for Raspberry Pi", url: `${URL_PREFIX}fnk0098${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0099": { 
+            title: "Freenove ESP32-S3-WROOM Board Lite", url: `${URL_PREFIX}fnk0099${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0100": { 
+            title: "Freenove Computer Case Kit for Raspberry Pi", url: `${URL_PREFIX}fnk0100${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0101": { 
+            title: "Freenove Breakout Board", url: `${URL_PREFIX}fnk0101${URL_SUFFIX}`, category: "Starter"
+        },
+        "fnk0102": { 
+            title: "Freenove Media Kit for ESP32-S3", url: `${URL_PREFIX}fnk0102${URL_SUFFIX}`, category: "Robotics"
+        },
+        "fnk0103": { 
+            title: "Freenove ESP32 Display", url: `${URL_PREFIX}fnk0103${URL_SUFFIX}`, category: "Starter"
         },
     };
     addFontAwesome();   // Load icon fonts

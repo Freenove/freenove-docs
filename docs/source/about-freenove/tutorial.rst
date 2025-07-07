@@ -524,7 +524,7 @@ Tutorial
       - **Freenove Breakout Board for ESP32**	
       - .. centered:: `View <https://github.com/Freenove/Freenove_Breakout_Board_for_ESP32>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_Breakout_Board_for_ESP32/archive/refs/heads/main.zip>`__
-      -
+      - .. centered:: :Freenove:`Online <fnk0091>`
 
     * - .. centered:: FNK0092	
       - **Freenove Complete Starter Kit for Control Board V5**	
@@ -560,13 +560,13 @@ Tutorial
       - **Freenove Omni Wheel Car Kit for Raspberry Pi Pico**	
       - .. centered:: `View <https://github.com/Freenove/Freenove_Omni_Wheel_Car_Kit_for_Raspberry_Pi_Pico>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_Omni_Wheel_Car_Kit_for_Raspberry_Pi_Pico/archive/refs/heads/main.zip>`__
-      - 
+      - .. centered:: :Freenove:`Online <fnk0097>`
 
     * - .. centered:: FNK0098	
       - **Freenove M.2 NVMe Adapter for Raspberry Pi**	
       - .. centered:: `View <https://github.com/Freenove/Freenove_M.2_NVMe_Adapter_for_Raspberry_Pi>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_M.2_NVMe_Adapter_for_Raspberry_Pi/archive/refs/heads/main.zip>`__
-      - 
+      - .. centered:: :Freenove:`Online <fnk0098>`
 
     * - .. centered:: FNK0099	
       - **Freenove ESP32-S3-WROOM Board Lite**	
@@ -578,13 +578,13 @@ Tutorial
       - **Freenove Computer Case Kit for Raspberry Pi**	
       - .. centered:: `View <https://github.com/Freenove/Freenove_Computer_Case_Kit_for_Raspberry_Pi>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_Computer_Case_Kit_for_Raspberry_Pi/archive/refs/heads/main.zip>`__
-      - 
+      - .. centered:: :Freenove:`Online <fnk0100>`
 
     * - .. centered:: FNK0101
       - **Freenove Breakout Board**
       - .. centered:: `View <https://github.com/Freenove/Freenove_Breakout_Board>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_Breakout_Board/archive/refs/heads/main.zip>`__
-      - 
+      - .. centered:: :Freenove:`Online <fnk0101>`
 
     * - .. centered:: FNK0102
       - **Freenove Media Kit for ESP32-S3**
@@ -596,4 +596,4 @@ Tutorial
       - **Freenove ESP32 Display**
       - .. centered:: `View <https://github.com/Freenove/Freenove_ESP32_Display>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_ESP32_Display/archive/refs/heads/main.zip>`__
-      - 
+      - .. centered:: :Freenove:`Online <fnk0103>`

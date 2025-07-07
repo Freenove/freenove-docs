@@ -19,7 +19,7 @@
        
 
    * -  .. centered:: |FNK0101|
-     -  .. centered:: fnk0101
+     -  .. centered:: :Freenove:`fnk0101 <fnk0101>`
      -  **Freenove I2C IIC LCD 1602 2004 Module**
 
 .. |FNK0079| image:: ../_static/products/Components/FNK0079.png

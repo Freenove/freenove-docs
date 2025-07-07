@@ -19,5 +19,5 @@
      -  .. centered:: :Freenove:`fnk0088 <fnk0087>`
      -  **Freenove Nickel Strip for Spot Welder**
 
-.. |FNK0087| image:: ../_static/products/Tools/FNK0087.png    
-.. |FNK0088| image:: ../_static/products/Tools/FNK0088.png     
+.. |FNK0087| image:: ../_static/products/Tools/FNK0087.png
+.. |FNK0088| image:: ../_static/products/Tools/FNK0088.png

@@ -57,15 +57,15 @@ Robotics kits
      -  **Freenove Bipedal Robot Kit for Raspberry Pi Pico 1 2 W H WH**
 
    * -  .. centered:: |FNK0089_1|
-     -  .. centered:: fnk0089
+     -  .. centered:: :Freenove:`fnk0089 <fnk0089>`
      -  **Freenove 4WD Car Kit for Raspberry Pi Pico 1 2 W H WH**
        
    * -  .. centered:: |FNK0089_2|
-     -  .. centered:: fnk0089
+     -  .. centered:: :Freenove:`fnk0089 <fnk0089>`
      -  **Freenove 4MWD Car Kit for Raspberry Pi Pico 1 2 W H WH**
 
    * -  .. centered:: |FNK0097|
-     -  .. centered:: fnk0097
+     -  .. centered:: :Freenove:`fnk0097 <fnk0097>`
      -  **Freenove Omni Wheel Car Kit for Raspberry Pi Pico 1 2 W H WH**
 
 .. |FNK0033| image:: ../_static/products/RaspberryPi-Pico/FNK0033.png

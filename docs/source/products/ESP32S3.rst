@@ -31,7 +31,7 @@ Starter kits
      -  **Freenove ESP32-S3-WROOM CAM Board**
 
    * -  .. centered:: |FNK0099|
-     -  .. centered:: fnk0099
+     -  .. centered:: :Freenove:`fnk0099 <fnk0099>`
      -  **Freenove ESP32-S3-WROOM Board Lite**
 
    * -  .. centered:: |FNK0086|
