@@ -9,87 +9,87 @@
  For example, :black:`text in black` or :blink:`text blinking` in rST. */
 
 .black {
-    color: black;
+    color: black !important;
 }
 
 .gray {
-    color: gray;
+    color: gray !important;
 }
 
 .grey {
-    color: gray;
+    color: gray !important;
 }
 
 .silver {
-    color: silver;
+    color: silver !important;
 }
 
 .white {
-    color: white;
+    color: white !important;
 }
 
 .maroon {
-    color: maroon;
+    color: maroon !important;
 }
 
 .red {
-    color: red;
+    color: red !important;
 }
 
 .magenta {
-    color: magenta;
+    color: magenta !important;
 }
 
 .fuchsia {
-    color: fuchsia;
+    color: fuchsia !important;
 }
 
 .pink {
-    color: pink;
+    color: pink !important;
 }
 
 .orange {
-    color: orange;
+    color: orange !important;
 }
 
 .yellow {
-    color: yellow;
+    color: yellow !important;
 }
 
 .lime {
-    color: lime;
+    color: lime !important;
 }
 
 .green {
-    color: green;
+    color: green !important;
 }
 
 .olive {
-    color: olive;
+    color: olive !important;
 }
 
 .teal {
-    color: teal;
+    color: teal !important;
 }
 
 .cyan {
-    color: cyan;
+    color: cyan !important;
 }
 
 .aqua {
-    color: aqua;
+    color: aqua !important;
 }
 
 .blue {
-    color: blue;
+    color: blue !important;
 }
 
 .navy {
-    color: navy;
+    color: navy !important;
 }
 
 .purple {
-    color: purple;
+    color: purple !important;
 }
 
 .huge {
