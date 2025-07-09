@@ -141,16 +141,7 @@
     font-size: xx-small;
 }
 
-.x-large-bold{
-    font-size: x-large;
-    font-weight: bold;
-}
-
-.font-bond{
-    font-weight: bold;
-}
-
-.font-bonder{
+.font-bolder{
     font-weight: bolder;
 }
 
