@@ -353,15 +353,6 @@ dl.c.function dt.sig.sig-object.c {
     z-index: 1000;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     
-    /* Transition easing animations */
-    transition: top 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                bottom 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    
     transform-origin: center center;
 }
 
@@ -377,7 +368,9 @@ dl.c.function dt.sig.sig-object.c {
     opacity: 0;
     pointer-events: none;
     transform: scale(0);
-    transition: all 0.3s ease;
+    transition: width 0.3s ease,
+                left 0.3s ease,
+                height 0.3s ease;
 }
 
 #fnk-quick-jump.minimized .minimized-icon {
@@ -482,191 +475,6 @@ dl.c.function dt.sig.sig-object.c {
     padding: 0 20px;
 }
 
-/* Main panel description styling */
-.fnk-description {
-    font-size: 1rem;
-    color: #5a6b7c;
-    margin-bottom: 25px;
-    line-height: 1.6;
-    padding: 0 10px;
-}
-
-/* Main panel input hint styling */
-.fnk-input-group {
-    position: relative;
-    margin-bottom: 10px;
-}
-
-/* Main panel input field styling */
-.fnk-input {
-    font-size: 1rem !important;
-    width: 100%; 
-    height: 50px; 
-    padding: 15px 20px;
-    border: 2px solid #e0e7ff;
-    border-radius: 9px !important;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-}
-
-/* Main panel input field selected state styling */
-.fnk-input:focus {
-    outline: none;
-    border-color: #ff7b00;
-    box-shadow: 0 0 0 4px rgba(219, 141, 52, 0.25);
-}
-
-/* Main panel input hint text styling */
-.fnk-input::placeholder {
-    color: #95a5a6;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-/* Jump button styling */
-.fnk-button {
-    position: absolute;
-    right: 5px;
-    top: 50%; 
-    transform: translateY(-50%); 
-    background: #ff7b00;
-    color: white;
-    border: none;
-    border-radius: 9px;
-    padding: 9px 20px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 8px rgba(219, 147, 52, 0.3);
-}
-
-/* Button hover state styling */
-.fnk-button:hover {
-    background: #ff7b00;
-    transform: translateY(-50%) scale(1.02); 
-    box-shadow: 0 5px 12px rgba(219, 141, 52, 0.4);
-}
-
-/* Search suggestion styling */
-.fnk-suggestions {
-    max-height: 250px;
-    overflow-y: auto;
-    margin-top: 10px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.95); 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    display: none;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-/* Search suggestions list styling */
-.fnk-suggestion-item {
-    padding: 13px 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border-bottom: 1px solid rgba(241, 238, 236, 0.6);
-    display: flex;
-    align-items: center;
-}
-
-.fnk-suggestion-item:last-child {
-    border-bottom: none; /* Remove bottom border from last element */
-}
-
-/* Search suggestions list hover styling */
-.fnk-suggestion-item:hover {
-    background: rgba(219, 147, 52, 0.12);
-}
-
-/* Search suggestion list hover style */
-.fnk-suggestion-code {
-    background: #ff7b00;
-    color: white;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    margin-right: 15px;
-    font-weight: 600;
-    min-width: 80px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Error message styling */
-.fnk-error-message {
-    color: #e74c3c;
-    font-size: 0.95rem;
-    margin-top: 12px;
-    padding: 10px 15px;
-    background: rgba(231, 76, 60, 0.12);
-    border-radius: 8px;
-    display: none;
-    border: 1px solid rgba(231, 76, 60, 0.2);
-}
-
-/* Access record and icon layout styling */
-.fnk-recent-section {
-    margin-top: 40px; 
-    padding-top: 15px;
-    border-top: 1px solid rgba(0,0,0,0.05);
-}
-
-/* Access log title styling */ 
-.fnk-section-title {
-    font-size: 1.2rem;
-    font-weight: 650;
-    color: #2c3e50;
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Recent visits list */
-.fnk-recent-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* Recent visits list category */
-.fnk-recent-item {
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    background: rgba(236, 240, 241, 0.45);
-    border-radius: 10px;
-    transition: all 0.25s ease;
-    cursor: pointer;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
- /* Recent visits list category hover style */
-.fnk-recent-item:hover {
-    background: rgba(219, 141, 52, 0.15);
-    transform: translateX(5px);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-}
-
-/* Recent visits list */
-.fnk-recent-code {
-    font-weight: 700;
-    color: #ff7b00;
-    min-width: 80px;
-    font-size: 1.05rem;
-}
-
-/* Recent visits category name */
-.fnk-recent-name {
-    font-size: 1rem;
-    color: #34495e;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: 500;
-}
-
 /* Recent visits category description */
 .fnk-key-hint {
     margin-top: 25px;
@@ -679,20 +487,12 @@ dl.c.function dt.sig.sig-object.c {
     border: 1px dashed rgba(0,0,0,0.08);
 }
 
-/* Clear recent visits list */
-.fnk-clear-recent {
-    margin-left: auto;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-    padding: 0 8px;
-    font-size: 1.1rem; 
-    color: #95a5a6; 
-}
-
-/* Clear recent visits list hover state */
-.fnk-clear-recent:hover {
-    opacity: 1;     /* 100% opacity on hover */
+kbd {
+    background-color: #e1e3e5;
+    border-radius: 3px;
+    padding: 2px 4px;
+    font-size: 11px;
+    border: 1px solid #ccc;
 }
 /* ---------------------------------------------------------------------------------------------- */
 
@@ -736,23 +536,6 @@ dl.c.function dt.sig.sig-object.c {
     overflow: hidden;
     text-decoration: none;
 }
-
-/* Ripple effect style */
-.ripple {
-    position: absolute;             /* Fixed positioning */
-    border-radius: 50%;             /* Rounded corners */
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(0);            /* Initial scale set to 0 */
-    animation: ripple-animation 0.6s linear; /* Apply animation */
-}
-
-@keyframes ripple-animation {
-    to { /* Define end state only */
-        transform: scale(4);    /* Scale up by 4 times */
-        opacity: 0;             /* Fully transparent */
-    }
-}
-
 
 .control-btn::before {
     content: '';
@@ -817,7 +600,7 @@ dl.c.function dt.sig.sig-object.c {
 
 /* Freenove icon style configuration */
 .website-btn {
-  background-image: url("https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/images/freenove_logo_tag_icon.png");
+  background-image: url("../images/freenove_logo_tag_icon.png");
   background-color: rgba(0, 0, 0, 0.7);
   background-size: 45%;
   background-position: center;
@@ -827,6 +610,15 @@ dl.c.function dt.sig.sig-object.c {
 /* Freenove icon style configuration */
 .language-btn {
   background-image: url("../images/language.png");
+  background-color: rgba(0, 0, 0, 0.7);
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Freenove icon style configuration */
+.support-btn {
+  background-image: url("../images/support_icon.png");
   background-color: rgba(0, 0, 0, 0.7);
   background-size: 55%;
   background-position: center;
@@ -862,222 +654,16 @@ dl.c.function dt.sig.sig-object.c {
     }
 }
 
-/* The full-screen background overlay for the modal */
-.download-modal {
-    display: none; /* Hidden by default. JS will change this to 'flex'. */
-    position: fixed; /* Covers the entire viewport */
-    z-index: 1000;   /* Sits on top of everything else, including the controls */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5); /* Semi-transparent black overlay */
-    
-    /* Use flexbox to easily center the modal content both vertically and horizontally */
-    justify-content: center;
-    align-items: center;
-}
-
-/* The actual dialog box/content window of the modal */
-.modal-content {
-    background-color: #fefefe;
-    padding: 25px 35px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    width: 90%;
-    max-width: 450px;
-    position: relative; /* Allows absolute positioning for the close button */
-    text-align: center;
-    animation: fadeIn 0.3s; /* A subtle fade-in animation */
-}
-
-/* The animation keyframes for the fade-in effect */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px) scale(0.95); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* The close 'X' button in the top-right of the modal */
-.modal-close {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    line-height: 1;
-}
-
-.modal-close:hover,
-.modal-close:focus {
-    color: black;
-    text-decoration: none;
-}
-
-/* The title text inside the modal */
-.modal-content h3 {
-    margin-top: 0;
-    margin-bottom: 25px;
-    color: #333;
-    font-size: 22px;
-}
-
-/* The container for the download format links (EPUB, HTML) */
-.modal-links {
-    display: flex;
-    flex-direction: column; /* Stack links vertically on small screens */
-    gap: 15px; /* Space between the download links */
-}
-
-/* Responsive design: for wider screens, place buttons side-by-side */
-@media (min-width: 400px) {
-    .modal-links {
-        flex-direction: row;
+@media (max-width: 1620px) {
+    .rtd-controls {
+        position: fixed;
+        left: auto;
+        right: 30px; 
     }
-}
-
-/* The style for the download links inside the modal */
-.modal-links a {
-    flex-grow: 1; /* Allows links to share the space equally in a row */
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
-}
-
-/* Hover state for the modal download links */
-.modal-links a:hover {
-    background-color: #0056b3;
 }
 
 /* ---------------------------------------------------------------------------------------------- */
 
-/*
- * ==========================================================================
- *  Custom Announcement Panel Styles
- * ==========================================================================
- */
-
-
-/* --- Main Panel Container --- */
-
-.rtd-announcement-panel {
-    /* Positioning: Keeps the panel in a fixed spot on the screen, even during scrolling. */
-    position: fixed; 
-
-    /* Placement: Positions the panel in the upper-right area of the viewport. */
-    top: 100px;
-    right: 120px;
-    
-    /* Sizing: Defines the panel's dimensions. */
-    width: 800px; 
-    padding: 30px; /* Internal spacing between the content and the border. */
-
-    /* Appearance: Sets the visual style for a clean, modern look. */
-    background-color: #f8f9fa;        /* A very light gray background. */
-    border: 1px solid #e9ecef;        /* A subtle, soft border. */
-    border-radius: 10px;              /* Rounds the corners of the panel. */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* A soft shadow to make the panel "float". */
-    
-    /* Stacking: Ensures the panel appears on top of other page content. */
-    z-index: 500;
-    
-    /* Typography: Sets the base text style for readability. */
-    font-size: 14px;
-    line-height: 1.6;
-    
-    /* Animation: Enables smooth transitions for properties like opacity and transform. */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-
-/* --- Section Title --- */
-
-.announcement-title {
-    display: flex;         /* Use Flexbox to align child elements (icon and text). */
-    align-items: center;   /* Vertically aligns the icon with the title text. */
-    font-size: 18px;       /* Larger font size for the title. */
-    font-weight: 600;      /* A semi-bold font weight. */
-    color: #212529;        /* A dark color for high contrast and readability. */
-    margin-bottom: 15px;   /* Adds space below the title. */
-}
-
-/* --- Title Icon --- */
-
-.announcement-icon {
-    font-size: 24px;       /* Makes the icon (emoji) larger than the text. */
-    margin-right: 10px;    /* Creates space between the icon and the title text. */
-}
-
-
-/* --- Main Content Area --- */
-
-.announcement-content p {
-    margin-top: 0;         /* Removes default top margin from paragraphs for consistent spacing. */
-    margin-bottom: 1em;    /* Adds space after each paragraph. */
-    color: #495057;        /* A softer dark gray for the main body text. */
-}
-
-/* Last paragraph in a content block has no bottom margin. */
-.announcement-content p:last-child {
-    margin-bottom: 0;
-}
-
-/* Style for strongly emphasized text within the content. */
-.announcement-content strong {
-    color: #d9534f;        /* Uses a red color to draw attention (e.g., for "beta phase"). */
-}
-
-
-/* --- Horizontal Divider --- */
-
-hr {
-    border: 0;                         /* Resets the default browser border. */
-    border-top: 1px solid #dee2e6;     /* Creates a custom, thin horizontal line. */
-    margin: 20px 0;                    /* Adds vertical space above and below the line. */
-}
-
-
-/* --- Close Button ('X') --- */
-
-.announcement-close {
-    position: absolute;       /* Positions the button relative to its parent (the panel). */
-    top: 10px;
-    right: 15px;
-    
-    /* Appearance for the 'X' character */
-    font-size: 24px;
-    font-weight: bold;
-    color: #adb5bd;            /* A muted gray color by default. */
-    line-height: 1;            /* Helps with precise vertical alignment. */
-
-    cursor: pointer;           /* Changes the mouse cursor to a pointer to show it's clickable. */
-    transition: color 0.2s ease; /* Smoothly transitions the color change on hover. */
-}
-
-/* Hover state for the close button */
-.announcement-close:hover {
-    color: #495057;            /* Darkens the color on hover for visual feedback. */
-}
-
-/*
- * ==========================================================================
- *  Responsive Design
- * ==========================================================================
- */
-
-/* Media Query: Hides the announcement on smaller screens. */
-@media (max-width: 1200px) {
-    /* When the viewport width is 1200px or less... */
-    .rtd-announcement-panel {
-        /* ...hide the panel completely. This prevents it from cluttering the UI on tablets and smaller devices. */
-        display: none;
-    }
-}
 /* ---------------------------------------------------------------------------------------------- */
 
 /*

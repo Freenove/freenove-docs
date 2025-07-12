@@ -221,21 +221,24 @@ function addFontAwesome() {
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    addFontAwesome(); 
-    
+
+    addFontAwesome();
+
     const widgetContainer = document.createElement('div');
     widgetContainer.id = 'fnk-quick-jump';
-    widgetContainer.classList.add('minimized');
+    widgetContainer.classList.add('minimized'); 
+    
+    widgetContainer.style.position = 'fixed';
+    widgetContainer.style.top = '170px';
+    widgetContainer.style.zIndex = '1000';
 
     widgetContainer.innerHTML = `
-        <div class="minimized-icon"><i class="fas fa-exclamation"></i></div>
-        
+        <div class="minimized-icon" style="cursor: pointer;"><i class="fas fa-exclamation"></i></div>
         <div class="fnk-widget">
             <div class="fnk-header">
                 <img src="https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/images/freenove_logo_tag_icon.png" class="fnk-logo">
                 <div class="fnk-title">Announcement</div>
             </div>
-            
             <div class="fnk-announcement-content" style="padding: 0 15px 5px; font-size: 13px; line-height: 1.6;">
                 <strong style="font-size: 20px;">Important note:</strong>
                 <p style="margin-top: 5px; margin-bottom: 15px;">
@@ -243,7 +246,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     If you find any mistake, please verify against the downloaded version. Your feedback is welcome.<br>
                     <a href="https://freenove.com/support" target="_blank" rel="noopener noreferrer">Click to contact technical support.</a>
                 </p>
-
                 <strong style="font-size: 20px;">How to translate:</strong>
                 <p style="margin-top: 5px; margin-bottom: 10px;">
                     This online document can be easily translated into multiple languages by mainstream browsers.<br>
@@ -253,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <a href="https://docs.freenove.com/en/latest/about-freenove/language.html" target="_blank" rel="noopener noreferrer">Click to view the detailed tutorial.</a>
                 </p>
             </div>
-            
             <div class="fnk-key-hint">
                 <p>Tip: Press <kbd>Alt</kbd> + <kbd>K</kbd> to show/hide this panel.</p>
             </div>
@@ -263,208 +264,61 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(widgetContainer);
 
     const minimizedIcon = widgetContainer.querySelector('.minimized-icon');
-
     let isMinimized = true;
 
-    let isDragging = false;
-    let isMouseDownOnIcon = false;
-    let dragStartX, dragStartY;
-    let initialX, initialY;
-    const dragThreshold = 5;
+    const EXPANDED_WIDGET_WIDTH = 520; 
+    const MINIMIZED_WIDGET_WIDTH = 60; 
 
-    let lastMinimizedEffectivePosition = { 
-        top: 'auto', bottom: '25px', 
-        left: 'auto', right: '25px',
-        transform: 'none'
-    };
+    const WIDGET_DEFAULT_LEFT = 1550; 
+    const WIDGET_MARGIN_RIGHT = 30;   
 
-    const storedPosition = localStorage.getItem('fnkMinimizedEffectivePosition');
-    if (storedPosition) {
-        lastMinimizedEffectivePosition = JSON.parse(storedPosition);
-    } 
+    function updatePosition() {
+        const viewportWidth = window.innerWidth;
+        const widgetWidth = widgetContainer.getBoundingClientRect().width;
 
-    applyMinimizedPositionToDOM();
-    function applyMinimizedPositionToDOM() {
-        widgetContainer.style.top = lastMinimizedEffectivePosition.top;
-        widgetContainer.style.bottom = lastMinimizedEffectivePosition.bottom;
-        widgetContainer.style.left = lastMinimizedEffectivePosition.left;
-        widgetContainer.style.right = lastMinimizedEffectivePosition.right;
-        widgetContainer.style.transform = lastMinimizedEffectivePosition.transform;
+        if (WIDGET_DEFAULT_LEFT + widgetWidth + WIDGET_MARGIN_RIGHT > viewportWidth) {
+            widgetContainer.style.left = 'auto';
+            widgetContainer.style.right = `${WIDGET_MARGIN_RIGHT}px`;
+        } else {
+            widgetContainer.style.left = `${WIDGET_DEFAULT_LEFT}px`;
+            widgetContainer.style.right = 'auto';
+        }
     }
+    
+    function updatePositionForToggle(isExpanding) {
+        const viewportWidth = window.innerWidth;
+        const futureWidgetWidth = isExpanding ? EXPANDED_WIDGET_WIDTH : MINIMIZED_WIDGET_WIDTH;
 
-    function getExpandedWidgetHeight() {
-        const tempWidget = widgetContainer.cloneNode(true);
-        tempWidget.id = 'fnk-quick-jump-temp';
-        tempWidget.classList.remove('minimized');
-        tempWidget.classList.remove('expanded');
-        tempWidget.style.cssText = `position: fixed; top: 0; left: -9999px; width: auto; height: auto; visibility: hidden; opacity: 0; pointer-events: none;`;
-        document.body.appendChild(tempWidget);
-        const height = tempWidget.querySelector('.fnk-widget').offsetHeight;
-        document.body.removeChild(tempWidget);
-        return height;
+        if (WIDGET_DEFAULT_LEFT + futureWidgetWidth + WIDGET_MARGIN_RIGHT > viewportWidth) {
+            widgetContainer.style.left = 'auto';
+            widgetContainer.style.right = `${WIDGET_MARGIN_RIGHT}px`;
+        } else {
+            widgetContainer.style.left = `${WIDGET_DEFAULT_LEFT}px`;
+            widgetContainer.style.right = 'auto';
+        }
     }
-
-    const cachedExpandedWidgetHeight = getExpandedWidgetHeight();
 
     function expandWidget() {
+        if (!isMinimized) return; 
+        updatePositionForToggle(true); 
         widgetContainer.classList.remove('minimized');
-        isMinimized = false;
-
-        const rect = widgetContainer.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const widgetActualHeight = cachedExpandedWidgetHeight;
-
-        let targetTop = 'auto';
-        let targetBottom = 'auto';
-
-        if (rect.top + rect.height < viewportHeight / 2) {
-            targetTop = `${rect.top}px`;
-
-            if (rect.top + widgetActualHeight > viewportHeight - 25) {
-                targetTop = 'auto';
-                targetBottom = '25px';
-            }
-        } else {
-            targetBottom = `${viewportHeight - rect.bottom}px`;
-
-            if (rect.bottom - widgetActualHeight < 25) {
-                targetBottom = 'auto';
-                targetTop = '25px';
-            }
-        }
-
-
-        widgetContainer.style.top = targetTop;
-        widgetContainer.style.bottom = targetBottom;
-        widgetContainer.style.left = 'auto';
-        widgetContainer.style.right = '20px'; 
-        widgetContainer.style.transform = 'none'; 
-
         widgetContainer.classList.add('expanded');
+        isMinimized = false;
     }
 
     function minimizeWidget() {
+        if (isMinimized) return;
+        updatePositionForToggle(false); 
         widgetContainer.classList.remove('expanded');
-        isMinimized = true;
-        applyMinimizedPositionToDOM(); 
         widgetContainer.classList.add('minimized');
+        isMinimized = true;
     }
-
+    
     function toggleWidget() {
-        if (isMinimized) {
-            expandWidget();
-        } else {
-            minimizeWidget();
-        }
+        isMinimized ? expandWidget() : minimizeWidget();
     }
 
-    function startDrag(e) {
-        if (!isMinimized) return;
-        e.preventDefault();
-        
-        isDragging = false;         
-        isMouseDownOnIcon = true;   
-        
-        dragStartX = e.clientX || e.touches[0].clientX;
-        dragStartY = e.clientY || e.touches[0].clientY;
-        
-        const rect = widgetContainer.getBoundingClientRect();
-        initialX = rect.left;
-        initialY = rect.top;
-        
-        widgetContainer.style.cursor = 'grabbing';
-        widgetContainer.style.transition = 'none';
-        widgetContainer.style.willChange = 'top, left, right, bottom';
-
-        document.addEventListener('mousemove', doDrag);
-        document.addEventListener('mouseup', stopDrag);
-        document.addEventListener('touchmove', doDrag, { passive: false }); 
-        document.addEventListener('touchend', stopDrag);
-    }
-
-    function doDrag(e) {
-        if (!isMouseDownOnIcon || !isMinimized) return; 
-
-        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-        
-        if (clientX === undefined || clientY === undefined) return; 
-
-        const deltaX = clientX - dragStartX;
-        const deltaY = clientY - dragStartY;
-        
-        if (!isDragging && (Math.abs(deltaX) > dragThreshold || Math.abs(deltaY) > dragThreshold)) {
-            isDragging = true;
-            document.body.classList.add('no-selection');
-        }
-        
-        if (isDragging) { 
-            e.preventDefault();
-            const newX = initialX + deltaX;
-            const newY = initialY + deltaY;
-            
-            widgetContainer.style.left = `${newX}px`;
-            widgetContainer.style.top = `${newY}px`;
-            widgetContainer.style.right = 'auto';
-            widgetContainer.style.bottom = 'auto'; 
-            widgetContainer.style.transform = 'none'; 
-        }
-    }
-
-    function stopDrag() {
-        if (!isMouseDownOnIcon) return; 
-
-        document.body.classList.remove('no-selection'); 
-        widgetContainer.style.willChange = 'auto'; 
-        widgetContainer.style.transition = ''; 
-
-        if (!isDragging) {
-            toggleWidget(); 
-        } else {
-            const rect = widgetContainer.getBoundingClientRect();
-            saveMinimizedPositionAndSnap(rect.top); 
-        }
-        
-        isDragging = false;
-        isMouseDownOnIcon = false;
-        widgetContainer.style.cursor = 'grab'; 
-        
-        document.removeEventListener('mousemove', doDrag);
-        document.removeEventListener('mouseup', stopDrag);
-        document.removeEventListener('touchmove', doDrag);
-        document.removeEventListener('touchend', stopDrag);
-    }
-
-    function saveMinimizedPositionAndSnap(finalTop) {
-        const rect = widgetContainer.getBoundingClientRect(); 
-        const viewportHeight = window.innerHeight;
-        
-        let targetTop = 'auto', targetBottom = 'auto';
-        const currentCenterY = finalTop + rect.height / 2;
-        
-        if (currentCenterY < viewportHeight / 2) {
-            targetTop = `${Math.max(25, finalTop)}px`;
-            targetBottom = 'auto';
-        } else {
-            let calculatedBottom = viewportHeight - (finalTop + rect.height);
-            targetBottom = `${Math.max(25, calculatedBottom)}px`;
-            targetTop = 'auto';
-        }
-        
-        lastMinimizedEffectivePosition = {
-            top: targetTop,
-            bottom: targetBottom,
-            left: 'auto',
-            right: '25px',
-            transform: 'none'
-        };
-
-        localStorage.setItem('fnkMinimizedEffectivePosition', JSON.stringify(lastMinimizedEffectivePosition));
-        applyMinimizedPositionToDOM(); 
-    }
-
-    minimizedIcon.addEventListener('mousedown', startDrag);
-    minimizedIcon.addEventListener('touchstart', startDrag, { passive: false });
+    minimizedIcon.addEventListener('click', toggleWidget);
     
     document.addEventListener('click', (e) => {
         if (!widgetContainer.contains(e.target) && !isMinimized) {
@@ -473,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     widgetContainer.addEventListener('click', (e) => {
-        if (e.target.tagName.toLowerCase() !== 'a') {
+        if (e.target.tagName.toLowerCase() !== 'a' && e.target.closest('a') === null) {
             e.stopPropagation();
         }
     });
@@ -487,100 +341,12 @@ document.addEventListener('DOMContentLoaded', function() {
             minimizeWidget();
         }
     });
+
+    window.addEventListener('resize', updatePosition);
+
+    updatePosition();
 });
-
-const style = document.createElement('style');
-style.textContent = `
-    body.no-selection {
-        user-select: none !important;
-        -webkit-user-select: none !important;
-        cursor: grabbing !important; 
-    }
-    body.no-selection * {
-        -webkit-user-drag: none !important;
-        user-drag: none !important;
-        pointer-events: none !important; 
-    }
-    body.no-selection #fnk-quick-jump.minimized .minimized-icon {
-        pointer-events: auto !important; 
-        cursor: grabbing !important;
-    }
-`;
-document.head.appendChild(style);
 /* ---------------------------------------------------------------------------------------------- */
-
-
-/* ---------------------------------------------------------------------------------------------- */
-/**
- * @fileoverview This script dynamically creates page control buttons and a download modal.
- * It intelligently determines the correct download links based on the current page's URL structure.
- */
-
-/**
- * Parses the current window URL to determine the project name, language, version,
- * and constructs the appropriate download links for both EPUB and HTML formats.
- *
- * @returns {object} A configuration object containing project details and download URLs.
- * @property {string} project - The identified project name (e.g., 'fnk0020').
- * @property {string} language - The identified language code (e.g., 'en').
- * @property {string} version - The identified version (e.g., 'latest').
- * @property {string} htmlDownloadUrl - The fully constructed URL for the HTML zip download.
- * @property {string} epubDownloadUrl - The fully constructed URL for the EPUB download.
- */
-function getProjectConfigFromUrl() {
-    const hostname = window.location.hostname;
-    const pathParts = window.location.pathname.split('/').filter(part => part !== '');
-
-    // --- Initialize with safe default values ---
-    let project = 'unknown-project';
-    let language = 'en';
-    let version = 'latest';
-    let htmlDownloadUrl = '#'; // Fallback to a non-functional link
-    let epubDownloadUrl = '#'; // Fallback for the EPUB link
-
-    // --- Logic to differentiate between hosting environments and build URLs ---
-
-    // Case 1: "Path-based" structure (e.g., https://docs.freenove.com/projects/fnk0019/en/latest/)
-    if (pathParts.length >= 3 && pathParts[0] === 'projects') {
-        
-        project = pathParts[1];
-        language = pathParts[2];
-        version = pathParts[3] || 'latest';
-        
-        // In this structure, the download URL requires the project name.
-        htmlDownloadUrl = `/_/downloads/${project}/${language}/${version}/htmlzip/`;
-        epubDownloadUrl = `/_/downloads/${project}/${language}/${version}/epub/`;
-
-    }
-    else if (hostname.includes('docs.freenove.com')) {
-        
-        language = pathParts[0] || 'en';
-        version = pathParts[1] || 'latest';
-
-        htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
-        epubDownloadUrl = `/_/downloads/${language}/${version}/epub/`;
-
-    }
-    // Case 2: "Subdomain-based" structure (e.g., https://freenove-sphinx-rst.readthedocs.io/en/latest/)
-    else if (hostname.includes('.readthedocs.io')) {
-        
-        language = pathParts[0] || 'en';
-        version = pathParts[1] || 'latest';
-        
-        // In this structure, the project name is NOT included in the download URL path.
-        htmlDownloadUrl = `/_/downloads/${language}/${version}/htmlzip/`;
-        epubDownloadUrl = `/_/downloads/${language}/${version}/epub/`;
-        
-    }
-    // Case 3: Fallback for unrecognized URL structures.
-    else {
-        console.warn("Could not recognize URL structure. Download links might be incorrect.");
-    }
-    
-    // Package and return the final configuration.
-    const config = { project, language, version, htmlDownloadUrl, epubDownloadUrl };
-    return config;
-}
 
 /**
  * Creates and appends the page controls and the hidden download modal to the document.
@@ -595,7 +361,7 @@ function createPageContent() {
     // A data-driven approach to define buttons. Makes adding/removing buttons clean and easy.
     const controlsData = [
         { href: "https://docs.freenove.com/en/latest/about-freenove/language.html", target: "_blank", className: "language-btn", tooltip: "GitHub" },
-        { href: "https://freenove.com/support", target: "_blank", className: "support", icon: "fas fa-envelope", tooltip: "support" },
+        { href: "https://freenove.com/support", target: "_blank", className: "support-btn", tooltip: "support" },
         { href: "https://freenove.com/", target: "_blank", className: "website-btn", tooltip: "Freenove Official Website" },
         { href: "https://www.youtube.com/@Freenove", target: "_blank", className: "youtube", icon: "fab fa-youtube", tooltip: "YouTube" },
     ];
