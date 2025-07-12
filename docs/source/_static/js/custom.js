@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p style="margin-top: 5px; margin-bottom: 15px;">
                     This online document has just been launched and is currently being improved.<br>
                     If you find any mistake, please verify against the downloaded version. Your feedback is welcome.<br>
-                    <a href="https://freenove.com/support" target="_blank" rel="noopener noreferrer">Click to view the detailed tutorial.</a>
+                    <a href="https://freenove.com/support" target="_blank" rel="noopener noreferrer">Click to contact technical support.</a>
                 </p>
 
                 <strong style="font-size: 20px;">How to translate:</strong>
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     Please note that sometimes the translation may not be accurate.<br>
                     Should you find it not understantable,  please refer to the original text or contact our support.<br>
                     You can find the translation button near the address bar or by right-clicking the mouse.<br>
-                    <a href="https://docs.freenove.com/en/latest/about-freenove/language.html" target="_blank" rel="noopener noreferrer">Click to contact technical support.</a>
+                    <a href="https://docs.freenove.com/en/latest/about-freenove/language.html" target="_blank" rel="noopener noreferrer">Click to view the detailed tutorial.</a>
                 </p>
             </div>
             
