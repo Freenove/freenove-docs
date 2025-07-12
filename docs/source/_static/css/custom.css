@@ -173,6 +173,7 @@ h1 {
     font-size: 35px;
     font-family: "DengXian";
     font-weight: normal;
+    margin-bottom: 30px;
 }
 
 /* Heading 2 */
@@ -185,6 +186,8 @@ h2 {
     height: 40px;
     padding: 3px 2px;
     font-weight: normal;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 /* Heading 3 */
@@ -193,6 +196,8 @@ h3 {
     font-size: 30px;
     font-family: "DengXian";
     font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Heading 4 */
@@ -201,6 +206,8 @@ h4 {
     font-size: 20px;
     font-family: "DengXian";
     font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 /* ---------------------------------------------------------------------------------------------- */
 
@@ -804,7 +811,8 @@ dl.c.function dt.sig.sig-object.c {
 
 /* Set control icon color */
 .github-btn { color: #ffffff !important; }
-.youtube { color: #f44336 !important; }
+.support { color: #ffffff !important; }
+.youtube { color: #f43636 !important; }
 .download-btn { color: #66bb6a !important; }
 
 /* Freenove icon style configuration */
@@ -812,6 +820,15 @@ dl.c.function dt.sig.sig-object.c {
   background-image: url("https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/images/freenove_logo_tag_icon.png");
   background-color: rgba(0, 0, 0, 0.7);
   background-size: 45%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Freenove icon style configuration */
+.language-btn {
+  background-image: url("../images/language.png");
+  background-color: rgba(0, 0, 0, 0.7);
+  background-size: 55%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -1091,4 +1108,9 @@ hr {
     padding: 5px 6px;
     background-color: #ff00ff;
     color: #ffffff;
+}
+
+.image-border img{
+    border: 1px solid #000000 !important;
+    margin-bottom: 2rem !important; 
 }
