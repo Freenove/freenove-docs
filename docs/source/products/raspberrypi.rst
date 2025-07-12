@@ -96,6 +96,10 @@ Robotics kits
      -  .. centered:: :Freenove:`fnk0077 <fnk0077>`
      -  **Freenove Tank Robot Kit for Raspberry Pi**
 
+   * -  .. centered:: |FNK0100.MAIN|
+     -  .. centered:: :Freenove:`fnk0100 <fnk0100>`
+     -  **Freenove Computer Case Kit for Raspberry Pi 5**
+
 .. |FNK0021.MAIN| image:: ../_static/products/RaspberryPi/FNK0021.MAIN.jpg
 .. |FNK0036.MAIN| image:: ../_static/products/RaspberryPi/FNK0036.MAIN.jpg
 .. |FNK0043.MAIN| image:: ../_static/products/RaspberryPi/FNK0043.MAIN.jpg
@@ -103,3 +107,4 @@ Robotics kits
 .. |FNK0050.MAIN| image:: ../_static/products/RaspberryPi/FNK0050.MAIN.jpg
 .. |FNK0052.MAIN| image:: ../_static/products/RaspberryPi/FNK0052.MAIN.jpg
 .. |FNK0077.MAIN| image:: ../_static/products/RaspberryPi/FNK0077.MAIN.jpg
+.. |FNK0100.MAIN| image:: ../_static/products/RaspberryPi/FNK0100.png

@@ -66,5 +66,14 @@ Robotics kits
      -  .. centered:: :Freenove:`fnk0062 <fnk0062>`
      -  **Freenove Robot Dog Kit for ESP32-WROVER CAM**
 
+   * -  .. centered:: |FNK0062|
+     -  .. centered:: :Freenove:`fnk0062 <fnk0062>`
+     -  **Freenove Robot Dog Kit for ESP32-WROVER CAM**
+
+   * -  .. centered:: |FNK0103|
+     -  .. centered:: :Freenove:`fnk0103 <fnk0103>`
+     -  **Freenove ESP32 Touch Display CYD 2.8 3.2 3.5 4.0 Inch Dual-core 32-bit 240 MHz**
+
 .. |FNK0053| image:: ../_static/products/ESP32/FNK0053.png   
 .. |FNK0062| image:: ../_static/products/ESP32/FNK0062.png   
+.. |FNK0103| image:: ../_static/products/ESP32/FNK0103.png   

@@ -44,3 +44,22 @@ Starter kits
 .. |FNK0085| image:: ../_static/products/ESP32S3/FNK0085.png   
 .. |FNK0086| image:: ../_static/products/ESP32S3/FNK0086.png   
 .. |FNK0099| image:: ../_static/products/ESP32S3/FNK0099.png   
+
+Robotics kits
+----------------------------------------------------------------
+
+.. list-table:: 
+   :header-rows: 1 
+   :width: 70%
+   :align: center
+   :widths: 6 3 12
+   
+   * -  Image
+     -  SKU
+     -  Name
+
+   * -  .. centered:: |FNK0102|
+     -  .. centered:: :Freenove:`fnk0102 <fnk0102>`
+     -  **Freenove Media Kit for ESP32-S3-WROOM**
+
+.. |fnk0102| image:: ../_static/products/ESP32S3/FNK0102.png 
