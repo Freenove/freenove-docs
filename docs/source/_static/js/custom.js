@@ -402,3 +402,4 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("A critical error occurred while initializing page controls:", error);
     }
 });
+/* ---------------------------------------------------------------------------------------------- */
