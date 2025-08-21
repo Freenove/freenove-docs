@@ -693,41 +693,49 @@ kbd {
 }
 
 /* Mobile device configuration */
+@media (min-width: 769px) and (max-width: 1620px) {
+    .rtd-controls {
+        position: fixed;
+        left: auto;   /* Unset the large-screen 'left' value */
+        right: 30px;  /* Anchor to the right edge */
+    }
+}
+
+/* For mobile devices (up to 768px wide) */
 @media (max-width: 768px) {
     .rtd-controls {
-        flex-direction: row;
+        flex-direction: row;    /* Arrange buttons horizontally */
         bottom: 20px;
-        top: auto;
-        left: 50%;
-        transform: translateX(-50%);
-        right: auto;
+        top: auto;              /* Ensure 'bottom' is not overridden */
+        left: 50%;              /* Move left edge to the center */
+        transform: translateX(-50%); /* Pull back by half its own width to center */
+        right: auto;            /* Unset any 'right' value from other rules */
     }
     
     .control-btn:hover {
+        /* On mobile, transform upwards instead of sideways */
         transform: translateY(-10px) scale(1.15);
     }
     
     .tooltip {
-        top: -40px;
-        right: 50%;
-        transform: translateX(50%) translateY(20px);
+        top: -45px; /* A little more space */
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%); /* Center the tooltip */
+    }
+
+    .tooltip:hover {
+        opacity: 1; /* Re-apply tooltip visibility on mobile */
     }
     
     .tooltip::after {
-        top: 100%;
+        top: 100%; /* Arrow at the bottom of the tooltip */
         left: 50%;
         transform: translateX(-50%);
         border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
     }
 }
 
-@media (max-width: 1620px) {
-    .rtd-controls {
-        position: fixed;
-        left: auto;
-        right: 30px; 
-    }
-}
 
 /* ---------------------------------------------------------------------------------------------- */
 

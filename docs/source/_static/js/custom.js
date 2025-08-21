@@ -1,29 +1,65 @@
 // JavaScript Document
-$(document).ready(function () {
+
+/* ---------------------------------------------------------------------------------------------- */
+/* description: Implementation code for the navigation bar
+
+ * author: vegetable-syc
+
+ * date: 2025/08/21
+ */
+
+// Navigation bar CSS
+$(window).on('load', function () {
     setNavBar();
     NaviResize();
-
 });
+
 $(window).resize(function () {
+    // Real-time calculation
     NaviResize();
 });
+
+function setNavBar() {
+    let navBar = document.getElementById('navContent');
+    navBar.innerHTML = navBarHtml;
+}
 
 function NaviResize() {
     var navWidth = $('.wy-nav-side').width() + $('.wy-nav-content').outerWidth(true) + $('.wy-nav-side').offset().left;
-    var navHeight = $(".extrabody-content").height();
-    var navItemWidth = navWidth / 7;
-    navItemWidth = navItemWidth < 60 ? 60 : navItemWidth;
-    var navItemHeight = navItemWidth / 5;
-    $(".nav_fn>ul>li").width(navItemWidth);
-    $(".nav_fn>ul>li").height($(".extrabody-content").height);
-    $(".nav_fn>ul a").css("font-size", navItemWidth * 0.15 + "px");
+    
+    // Prevent calculated value from exceeding window width
+    if (navWidth > $(window).width()) {
+      navWidth = $(window).width();
+    }
+    $('.nav_fn').width(navWidth);
 
+    // Adjust font size
+    var navItemWidth = $(".nav_fn>ul>li").not(".nav-side-toggle").first().width();
+
+    if (navItemWidth > 0) {
+        var fontSize = navItemWidth * 0.15;
+        // Ensure the font size is no smaller than 12px
+        if (fontSize < 12) { fontSize = 12; }
+        $(".nav_fn>ul a").css("font-size", fontSize + "px");
+    }
+
+    // Auto-correct height
+    var navHeight = $(".extrabody-content").height();
+    if (navHeight > 0) {
+      $(".nav_fn").height(navHeight);
+    }
 }
 
+// Navigation bar HTML
 let navBarHtml =
     `
   <div class="nav_fn">
     <ul>
+        <li class="nav-side-toggle">
+            <div class="nav-side-btn" data-toggle="wy-nav-top">
+                <i class="fa fa-bars"></i>
+            </div>
+        </li>
         <!-- <li class="navLogo"><a href="/index.html"></a></li> -->
         <li>
             <div class="navDropDown">
@@ -91,6 +127,7 @@ let navBarHtml =
 </div>
 `;
 
+// Footer HTML
 let footerHtml = `
 <div style="border-top: 1px solid #ccc; ">
     <br/>
@@ -103,34 +140,12 @@ let footerHtml = `
     <br/>
 </div>`;
 
+// Page header HTML
 let pageHeaderHtml=`
 Need help? Contact <a href="mailto:support@freenove.com">support@freenove.com</a>
 `;
 
-function setNavBar() {
-    let navBar = document.getElementById('navContent');
-    navBar.innerHTML = navBarHtml;
-}
-
-function setPageLogo() {
-    var link =      document.querySelector("link[rel*='icon']") ||      document.createElement("link");
-    link.type = "image/x-icon";
-    link.rel = "shortcut icon";
-    link.href = "https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/images/freenove_logo_tag_icon.png";
-    // link.href = "https://raw.githubusercontent.com/Freenove/freenove-docs/refs/heads/main/docs/source/_static/images/freenove_logo_tag_icon.png";
-    document.getElementsByTagName("head")[0].appendChild(link);
-}
-function setHomeButtonPicture() {
-    let home_button = document.getElementsByClassName('logo');
-    // console.log(home_button);
-    home_button[0].src = "https://cdn.jsdelivr.net/gh/Freenove/freenove-docs/docs/source/_static/images/freenove_logo_home_button.png";
-    // home_button[0].src = "https://raw.githubusercontent.com/Freenove/freenove-docs/refs/heads/main/docs/source/_static/images/freenove_logo_home_button.png";
-}
 window.onload = function () {    
-    // console.log('window.onload');
-    // setPageLogo();
-    // setHomeButtonPicture();
-
     let footer_content = document.getElementById('footer_content');
     footer_content.innerHTML = footerHtml;
     $("#copy_right").text("© Copyright 2016 - " + new Date().getFullYear() + ", Freenove")
@@ -139,7 +154,6 @@ window.onload = function () {
     pageHeaderContent.innerHTML = pageHeaderHtml;
 };
 
-// console.log('freenove');
 
 /* ---------------------------------------------------------------------------------------------- */
 /* description: About The One-Click Copy Button
