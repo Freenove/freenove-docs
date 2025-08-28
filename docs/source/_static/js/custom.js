@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     widgetContainer.style.position = 'fixed';
     widgetContainer.style.top = '170px';
-    widgetContainer.style.zIndex = '1000';
+    widgetContainer.style.zIndex = '1002';  // Set the stacking level.
 
     widgetContainer.innerHTML = `
         <div class="minimized-icon" style="cursor: pointer;"><i class="fas fa-exclamation"></i></div>
