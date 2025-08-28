@@ -1,27 +1,6 @@
-
-:root{
-    --fn_nav_height: 2.0rem
-}
-
-.extrabody-content{
-    /* border: solid #00F 2px; */
-    background-color: #EFEFEF;
-    height: var(--fn_nav_height);
-}
-
-
-.wy-grid-for-nav {
-    top: var(--fn_nav_height);
-    height: calc(100% - var(--fn_nav_height));
-    /* height: 90%; */
-    overflow-y: auto;
-    position: fixed;
-}
-
-
-.wy-nav-side {
-    top: var(--fn_nav_height);
-    z-index: 2;
+/* Hide version selector */
+.version-switch {
+    display: none !important;
 }
 
 /* ---------------------------------------------------------------------------------------------- */
@@ -32,18 +11,41 @@
  * date: 2025/04/28
  */
 
-.float-left {
-    margin-left: 95px;  /* Left spacing */
-    margin-right: 20px; /* Right spacing */
+ /* Admonition title centering style */
+.admonition-center.admonition p:not(.admonition-title) {
+    text-align: left;
 }
 
-.float-right {
-    margin-left: 15px;  /* Left spacing */
-    margin-right: 85px; /* Right spacing */
+.download-grid {
+    display: flex;             /* 1. Enable Flexbox layout */
+    justify-content: center;   /* 2. Horizontally center the items in the container */
+    align-items: flex-start;   /* Align items to the top */
+    flex-wrap: wrap;           /* 3. Allow items to wrap to the next line on small screens */
+    gap: 40px;                 /* 4. Add space between the download items */
+    margin-top: 20px;          /* Add some space from the admonition title */
 }
 
-.custom-center {
-    margin: 20px 20px 0px 390px;  /* Top, Right, Bottom, Left spacing */
+/* Each individual download item (QR code + button) */
+.download-item {
+    display: flex;             /* 5. Also a flex container! */
+    flex-direction: column;    /* 6. Stack children (image and link) vertically */
+    align-items: center;       /* 7. Horizontally center the children */
+    gap: 15px;                 /* 8. Add space between the QR code and the download button */
+    text-align: center;
+}
+
+/* Optional: Add a little breathing room to the images inside the item */
+.download-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.download-grid.multi-items {
+    justify-content: space-around;
+}
+
+.download-item a::after {
+    display: none !important;
 }
 /* ---------------------------------------------------------------------------------------------- */
 
@@ -469,7 +471,7 @@ dl.c.function dd:empty {
     opacity: 0;
     pointer-events: none;
     transform: scale(0);
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
 
     z-index: 1001;
 

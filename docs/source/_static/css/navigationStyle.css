@@ -1,155 +1,191 @@
 @charset "utf-8";
 /* CSS Document */
-:root{
-    --fn_nav_height: 2.0rem;
-	--fn_nav_fontsize: 1.5rem;
+:root {
+    --fn_nav_height: 2.8rem;
+    --fn_nav_fontsize: 1.5rem;
 }
 
+/* "Hide the top area of the page */
+div.wy-nav-content {
+    padding-top: calc(var(--fn_nav_height) + 1.618em);
+}
+
+.wy-nav-side {
+    padding-bottom: 0px;
+}
+
+/* Main navigation bar styles */
 .nav_fn {
-	/* border: solid #F00 5px; */
-	/* background-color: rgb(52, 49, 49); */
-	/* background-color: solid #000; */
-	background-color:#343131;
-	position: absolute;
-	width: fit-content;
-	height: auto;
-	left: 0;
-	top: 0;
-	z-index: 1;
-	opacity: 1;
+    position: fixed;
+    top: 0;
+    height: var(--fn_nav_height);
+    z-index: 1000;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #4a4a4a, #2c2c2c);
+    border-bottom: 1px solid #1a1a1a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Turn the ul list itself into a Flexbox container */
+/* Navigation bar UL list styles */
 .nav_fn ul {
-	display: flex; 
-	flex-wrap: nowrap; 
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
+/* Parent menu item LI styles */
 .nav_fn li {
-	display: flex; 
-	justify-content: center; 
-	align-items: center;     
-	
-	flex-grow: 1;   
-	flex-shrink: 1; 
-	flex-basis: 0;  
-
-	height: var(--fn_nav_height);
-	cursor: pointer;
-	text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
 }
 
-/* Set fixed width for custom toggle button */
-.nav_fn ul .nav-side-toggle {
-    flex-grow: 0;      
-    flex-shrink: 0;     
-    flex-basis: 45px;  
-    display: none;      
-}
-
-/* Fill the entire li tag */
-.nav_fn a.dropBtn {
-	display: block;
-	width: 100%;
-	height: 100%;
-	line-height: var(--fn_nav_height); /* Ensure text is vertically centered */
-}
-
-/* Show custom buttons on mobile only */
-@media screen and (max-width: 767px) {
-    .nav_fn ul .nav-side-toggle {
-        display: flex; /* Keep centered alignment on mobile */
-    }
-}
-
-.navLogo {
-	background: url(../component-imgs/freenove-logo.png) no-repeat center;
-	background-size: 100%;
-	float: left;
-	width: auto;
-	height: var(--fn_nav_height);
-}
-
+/* Container for link <a> tags */
 .nav_fn .navDropDown {
-	width: 100%;
-	height: 100%;
+    display: inline-flex;
+    align-items: center;
 	position: relative;
 }
 
-.nav_fn .dropBtn {
-	/* border: solid #00F 2px; */
-	display: inline-block;
-	color: white;
-	text-align: center;
-	width: 100%;
-	height: 100%;
-	text-decoration: none;
+/* Link <a> tag styles */
+.nav_fn a.dropBtn {
+    display: block;
+    padding: 0 0.5em;
+    line-height: var(--fn_nav_height);
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+    color: #e8e8e8;
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    transition: color 0.3s ease;
 }
 
-.nav_fn a:hover,
-.navDropDown:hover .dropBtn {
-	background-color: #111;
+.has-dropdown::after {
+    content: '▼';
+    color: #e8e8e8;
+    font-size: 0.8em;
+    position: absolute; 
+    left: 90%;
+    top: 55%;
+    transform: translateY(-50%);
+    margin-left: 0.4em;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.nav_fn .navDropDown {
-	width: 100%;
-	height: 100%;
-	display: inline-block;
+/* Implement underline and arrow animation */
+.nav_fn li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out;
+}
+/* Trigger effects on mouse hover */
+.nav_fn li:not(.nav-side-toggle):hover a.dropBtn {
+    color: #fff; /* Text brightening effect */
+}
+.nav_fn li:not(.nav-side-toggle):hover::after {
+    width: 100%; /* Expand the underline to the full width of the li element */
+}
+/* Rotate arrow on hover */
+.nav_fn .navDropDown:hover::after {
+    transform: translateY(-50%) rotate(180deg);
 }
 
+/* --- Dropdown menu styles --- */
 .nav_fn .dropDownContent {
-	width: 100%;
-	background-color: #F9F9F9;
-	position: absolute;
-	display: none;
-	box-shadow: 0px 8px 15px 5px rgba(0, 0, 0, 0.8);
+    background-color: #fdfdfd;
+    position: absolute; 
+    top: 100%;
+    left: 0;
+    
+    min-width: 100%;
+	max-width: 100%;
+    white-space: nowrap;
+    
+    z-index: 101;
+    display: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 8px 8px;
+    border-top: 2px solid #555;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: 5px 0;
+    box-sizing: border-box;
 }
 
+/* Show dropdown menu on mouse hover */
+.nav_fn li:hover .dropDownContent:not(:empty) {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
 .nav_fn .dropDownContent a {
-	color: black;
-	text-decoration: none;
-	display: block;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 10px 2px;
+    font-weight: 400;
+    text-align: center;
+    text-shadow: none;
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
 }
-
 .nav_fn .dropDownContent a:hover {
-	background-color: #F1F1F1;
+    background-color: #8d8d8d;
 }
 
-.nav_fn .navDropDown:hover .dropDownContent {
-	display: block;
+.nav_fn > ul > li:not(:first-child):not(.nav-side-toggle) {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-side-btn {
+    height: 100%;
+    width: 100%;
+    color: #e8e8e8;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+.nav-side-btn:hover {
+    color: #fff;
+}
+.nav_fn ul .nav-side-toggle {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 45px;
+    display: none;
 }
 
 nav.wy-nav-top {
     display: none !important;
 }
 
-.nav-side-btn {
-    height: 100%;
-    width: 100%;
-    color: white;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-side-btn:hover {
-    background-color: #111;
-}
-
-.nav_fn > ul > li:not(:first-child) {
-    border-left: 1px solid #555; /* Color and thickness of the divider line */
-}
-
-/* Display custom buttons on mobile (screen width less than 768px) */
 @media screen and (max-width: 767px) {
     .nav_fn ul .nav-side-toggle {
-        display: block;
+        display: flex;
     }
+	.wy-grid-for-nav {
+   		margin-top: var(--fn_nav_height);
+	}
+	.wy-side-nav-search {
+   		margin-top: var(--fn_nav_height);
+	}
 }

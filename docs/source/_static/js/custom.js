@@ -8,45 +8,74 @@
  * date: 2025/08/21
  */
 
-// Navigation bar CSS
 $(window).on('load', function () {
     setNavBar();
-    NaviResize();
+    updateNavBarLayout();
 });
 
 $(window).resize(function () {
-    // Real-time calculation
-    NaviResize();
+    updateNavBarLayout();
 });
 
 function setNavBar() {
     let navBar = document.getElementById('navContent');
-    navBar.innerHTML = navBarHtml;
+    if (navBar) {
+        navBar.innerHTML = navBarHtml;
+        $('.dropDownContent').each(function() {
+            $(this).appendTo($(this).closest('li'));
+        });
+    }
 }
 
-function NaviResize() {
-    var navWidth = $('.wy-nav-side').width() + $('.wy-nav-content').outerWidth(true) + $('.wy-nav-side').offset().left;
-    
-    // Prevent calculated value from exceeding window width
-    if (navWidth > $(window).width()) {
-      navWidth = $(window).width();
+/**
+ * Dynamic calculation and updating of the navigation bar width
+ */
+function updateNavBarLayout() {
+    const navBar = $('.nav_fn');
+    const mobileBreakpoint = 752;
+
+    if (!navBar.length) return;
+
+    /* Determine whether the current device is mobile or desktop */
+    // mobile
+    if ($(window).width() < mobileBreakpoint) {
+        // Make the navigation bar occupy the full width
+        navBar.css({
+            'left': '0px',
+            'width': '100%'
+        });
+    } 
+    // desktop
+    else {
+        // Calculate the size of .wy-nav-content
+        const targetElement = $('.wy-nav-content');
+        if (targetElement.length) {
+            const leftPosition = targetElement.offset().left;
+            const width = targetElement.outerWidth();
+            navBar.css({
+                'left': leftPosition + 'px',
+                'width': width + 'px'
+            });
+        }
     }
-    $('.nav_fn').width(navWidth);
 
-    // Adjust font size
-    var navItemWidth = $(".nav_fn>ul>li").not(".nav-side-toggle").first().width();
-
+    // Enable automatic scaling feature
+    const navItemWidth = navBar.find(">ul>li").not(".nav-side-toggle").first().width();
     if (navItemWidth > 0) {
-        var fontSize = navItemWidth * 0.15;
-        // Ensure the font size is no smaller than 12px
+        let fontSize = navItemWidth * 0.15;
         if (fontSize < 12) { fontSize = 12; }
-        $(".nav_fn>ul a").css("font-size", fontSize + "px");
-    }
+        
+        let subfontSize = fontSize * 0.5;
+        if (subfontSize < 6) { subfontSize = 6; }
 
-    // Auto-correct height
-    var navHeight = $(".extrabody-content").height();
-    if (navHeight > 0) {
-      $(".nav_fn").height(navHeight);
+        let dropfontSize = navItemWidth * 0.1;
+        if (dropfontSize < 1) { dropfontSize = 1; }
+
+        navBar.find(".dropDownContent a").css("font-size", subfontSize + "px");
+
+        navBar.find(">ul a").css("font-size", fontSize + "px");
+
+        navBar.find(".has-dropdown").css("font-size", dropfontSize + "px");
     }
 }
 
@@ -64,12 +93,10 @@ let navBarHtml =
         <li>
             <div class="navDropDown">
                 <a href="https://docs.freenove.com/en/latest/"  target="_blank" class="dropBtn">Home</a>
-                <div class="dropDownContent">
-                </div>
             </div>
         </li>
         <li>
-            <div class="navDropDown">
+            <div class="navDropDown has-dropdown">
                 <a href="#" class="dropBtn">Store</a>
                 <div class="dropDownContent">
                     <a href="https://store.freenove.com/" target="_blank">Official </a>
@@ -82,44 +109,32 @@ let navBarHtml =
         <li>
             <div class="navDropDown">
                 <a href="https://docs.freenove.com/en/latest/about-freenove/tutorial.html#" target="_blank" class="dropBtn">Tutorial</a>
-                <div class="dropDownContent">
-                </div>
             </div>
         </li>
         <li>
             <div class="navDropDown">
                 <a href="https://docs.freenove.com/en/latest/about-freenove/support.html#" target="_blank" class="dropBtn">Support</a>
-                <div class="dropDownContent">
-                </div>
             </div>
         </li>
         <li>
             <div class="navDropDown">
                 <a href="https://docs.freenove.com/en/latest/about-freenove/app.html#" target="_blank" class="dropBtn">App</a>
-                <div class="dropDownContent">
-                </div>
             </div>
         </li>
         <li>
             <div class="navDropDown">
                 <a href="https://docs.freenove.com/en/latest/about-freenove/contact.html#" target="_blank" class="dropBtn">Contact</a>
-                <div class="dropDownContent">
-                </div>
             </div>
         </li>
         <li>
             <div class="navDropDown">
                 <a href="https://docs.freenove.com/en/latest/about-freenove/about.html#" target="_blank" class="dropBtn">About</a>
-                <div class="dropDownContent">
-                </div>
             </div>
         </li>
         
             <!-- <li id="txt">
                 <div class="navDropDown">
                     <a href="https://freenove.com/" class="dropBtn">Welcome</a>
-                    <div class="dropDownContent">
-                    </div>
                 </div>
             </li> -->
        
@@ -153,7 +168,7 @@ window.onload = function () {
     let pageHeaderContent = document.getElementById('pageHeaderContent');
     pageHeaderContent.innerHTML = pageHeaderHtml;
 };
-
+/* ---------------------------------------------------------------------------------------------- */
 
 /* ---------------------------------------------------------------------------------------------- */
 /* description: About The One-Click Copy Button
