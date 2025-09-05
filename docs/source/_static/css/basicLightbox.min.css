@@ -1,0 +1,113 @@
+/**
+ * Main styles for the basicLightbox.
+ * This is the full-screen, semi-transparent black overlay.
+ */
+.basicLightbox {
+    /* Position it to cover the entire viewport, on top of other content. */
+    position: fixed;
+    display: flex;
+    justify-content: center; /* Center the content horizontally. */
+    align-items: center;    /* Center the content vertically. */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Use 100vh to cover the full viewport height. */
+    
+    /* The semi-transparent black background. */
+    background: rgba(0, 0, 0, .8);
+
+    /* By default, the lightbox is invisible. The opacity will be transitioned to 1. */
+    opacity: .01;
+    transition: opacity .4s ease; /* A 0.4-second fade animation. */
+
+    /* A performance hint for the browser that the opacity property will be animated. */
+    will-change: opacity;
+    z-index: 1005;
+}
+
+/**
+ * The visible state.
+ * The JavaScript adds this class to show the lightbox.
+ */
+.basicLightbox--visible {
+    /* Triggers the fade-in animation by setting opacity to 1. */
+    opacity: 1;
+}
+
+/**
+ * The placeholder element.
+ * This is the direct container for the content (image, video, etc.) inside the overlay.
+ */
+.basicLightbox__placeholder {
+    max-width: 100%; /* Ensure it doesn't overflow the viewport width. */
+
+    /* Start the content slightly scaled down for a zoom-in animation effect. */
+    transform: scale(.9);
+    transition: transform .4s ease; /* A 0.4-second zoom animation. */
+    z-index: 1; /* Puts the content above the background but below other potential UI. */
+
+    /* A performance hint for the browser that the transform property will be animated. */
+    will-change: transform;
+}
+
+/**
+ * The content itself (image, video, or iframe).
+ * This complex selector targets the element when it is the one and only child
+ * of the placeholder.
+ */
+.basicLightbox__placeholder > iframe:first-child:last-child,
+.basicLightbox__placeholder > img:first-child:last-child,
+.basicLightbox__placeholder > video:first-child:last-child {
+    /* A classic technique to perfectly center an element inside its container. */
+    display: block;
+    /* position: absolute; */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    /* Ensure the content doesn't touch the edges of the viewport. */
+    max-width: 95%;
+    max-height: 95%;
+}
+
+/**
+ * Ensure interactive elements like videos and iframes can be clicked.
+ */
+.basicLightbox__placeholder > iframe:first-child:last-child,
+.basicLightbox__placeholder > video:first-child:last-child {
+    pointer-events: auto;
+}
+
+/**
+ * Ensure images and videos maintain their correct aspect ratio.
+ */
+.basicLightbox__placeholder > img:first-child:last-child,
+.basicLightbox__placeholder > video:first-child:last-child {
+    width: auto;
+    height: auto;
+}
+
+/**
+ * When the lightbox contains a specific type of content (like an image),
+ * the JavaScript adds a special class. This makes the placeholder take up the full
+ * space, which is necessary for the absolute positioning of the content inside to work.
+ */
+.basicLightbox--iframe .basicLightbox__placeholder,
+.basicLightbox--img .basicLightbox__placeholder,
+.basicLightbox--video .basicLightbox__placeholder {
+    width: 100%;
+    height: 100%;
+    /* Clicks on the placeholder (but not the content) will pass through to the background, allowing it to be closed. */
+    pointer-events: none;
+}
+
+/**
+ * The visible state for the placeholder.
+ * When the lightbox is visible, the content scales up to its normal size,
+ * completing the zoom-in animation.
+ */
+.basicLightbox--visible .basicLightbox__placeholder {
+    transform: scale(1);
+}

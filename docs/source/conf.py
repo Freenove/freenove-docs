@@ -102,13 +102,17 @@ html_css_files = [
     # "css/color-roles.css",
     # "css/custom.css",
     # "css/navigationStyle.css",
+    # "css/basicLightbox.min.css",
     'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs@latest/docs/source/_static/css/color-roles.css',
     'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs@latest/docs/source/_static/css/custom.css',
     'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs@latest/docs/source/_static/css/navigationStyle.css',
+    'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs@latest/docs/source/_static/css/basicLightbox.min.css',
 ]
 
 html_js_files = [
+    'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs@latest/docs/source/_static/js/basicLightbox.min.js',
     'https://cdn.jsdelivr.net/gh/Freenove/freenove-docs@latest/docs/source/_static/js/custom.js',
+    # 'js/basicLightbox.min.js',
     # 'js/custom.js'
 ]
 

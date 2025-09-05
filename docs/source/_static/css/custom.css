@@ -743,8 +743,88 @@ kbd {
     }
 }
 
-
 /* ---------------------------------------------------------------------------------------------- */
+/*
+ * ==========================================================================
+ *  For the "by series" section in freenove-docs
+ * ==========================================================================
+ */
+
+/* Table overall style */
+table.docutils.product-table {
+    margin: 20px auto; /* Center and add margin */
+    border-collapse: separate; /* Using separate can achieve rounded corner effects. */
+    border-spacing: 0;
+    border: 1px solid #dfe2e5; /* External border */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Add a soft shadow */
+    overflow: hidden; /* Ensure rounded corners are displayed correctly. */
+}
+
+/* Header style */
+table.docutils.product-table thead th {
+    background-color: #ff7b00; /* Use more vibrant brand colors */
+    color: #ffffff; /* Change the header text color to white */
+    font-weight: 600; /* Bold the font */
+    padding: 18px 12px; /* Increase padding */
+    text-align: center;
+    border-bottom: 1px solid #dfe2e5;
+}
+
+table.docutils.product-table thead th p{
+    font-size: 1.3em !important;
+}
+
+/* Table Cell Styling */
+table.docutils.product-table td {
+    padding: 15px 12px;
+    border-top: 1px solid #dfe2e5;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Image Styling */
+table.docutils.product-table td .centered img {
+    height: auto;
+    border-radius: 4px; /* Add subtle rounded corners to images */
+    transition: transform 0.2s ease-in-out; /* Add hover zoom effect */
+}
+
+table.docutils.product-table td .centered img:hover {
+    transform: scale(1.05);
+}
+
+/* Product Name Styling */
+table.docutils.product-table td p strong {
+    font-size: 1.1em;
+    color: #333; /* Normal Text Color */
+    font-weight: 600;
+}
+
+/* SKU Text Styling */
+table.docutils.product-table td .centered code {
+    background-color: #eef0f2;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+table.docutils.product-table .product-image {
+    cursor: pointer;
+}
+
+/* Purchase Button Styling */
+.purchase-icon {
+    transition: transform 0.2s ease-in-out; /* Smooth Zoom Effect */
+}
+
+.purchase-icon:hover {
+    transform: scale(1.2); /* Hover Scale 20% Effect */
+}
+
+.product-table td a::after {
+    display: none !important;
+}
 
 /* ---------------------------------------------------------------------------------------------- */
 
@@ -782,3 +862,5 @@ kbd {
     border: 1px solid #000000 !important;
     margin-bottom: 2rem !important; 
 }
+
+/* ---------------------------------------------------------------------------------------------- */

@@ -378,8 +378,10 @@ document.addEventListener('DOMContentLoaded', function() {
 /* ---------------------------------------------------------------------------------------------- */
 
 /**
- * Creates and appends the page controls and the hidden download modal to the document.
+ * Creates and appends the page controls to the document.
  * It also sets up all necessary event listeners for interactivity.
+ * @date  :  2025-07-15
+ * @author:  Eason SYC
  */
 function createPageContent() {
 
@@ -432,3 +434,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 /* ---------------------------------------------------------------------------------------------- */
+/**
+ * To implement the image display functionality using the basiclightbox.min library.
+ * @date  :  2025-09-05
+ * @author:  Eason SYC
+ */
+
+// Wait for the entire webpage content to finish loading
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Select all images within .product-table that have the class .product-image
+  const images = document.querySelectorAll('.product-table img.product-image');
+
+  // To traverse all the found images
+  images.forEach(function(image) {
+
+    // Add a click event listener to each image.
+    image.addEventListener('click', function(event) {
+      
+      // Get the source URL (src) of the clicked image.
+      const imageUrl = image.getAttribute('src');
+      
+      // Create and Display an Image Popup with basicLightbox
+      basicLightbox.create(`
+          <img src="${imageUrl}" style="max-width: 90vw; max-height: 90vh;">
+      `).show();
+
+    });
+  });
+});
+
+// Open links in a new page
+$(document).ready(function() {
+  // Find all images with the class purchase-icon
+  // Get their parent <a> link tags
+  // Add the target="_blank" attribute to them.
+  $('.purchase-icon').parent('a').attr({
+    'target': '_blank',
+    'rel': 'noopener noreferrer'
+  });
+});

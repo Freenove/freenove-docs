@@ -1,36 +1,84 @@
 
 
+
 Starter kits
 ----------------------------------------------------------------
 
 
 .. list-table:: 
    :header-rows: 1 
-   :width: 70%
+   :width: 90%
    :align: center
-   :widths: 6 3 12
+   :widths: 6 3 12 2
+   :class: product-table
    
    * -  Image
      -  SKU
      -  Name
+     -  Purchase
 
    * -  .. centered:: |FNK0073|
-     -  .. centered:: :Freenove:`fnk0073 <fnk0073>`
+     -  .. centered:: :Freenove:`FNK0073 <fnk0073>`
      -  **Freenove Ultimate Starter Kit for ESP8266**
+     -  |Purchase73|
 
    * -  .. centered:: |FNK0074|
-     -  .. centered:: :Freenove:`fnk0074 <fnk0074>`
+     -  .. centered:: :Freenove:`FNK0074 <fnk0074>`
      -  **Freenove Super Starter Kit for ESP8266**
+     -  |Purchase74|
 
    * -  .. centered:: |FNK0075|
-     -  .. centered:: :Freenove:`fnk0075 <fnk0075>`
+     -  .. centered:: :Freenove:`FNK0075 <fnk0075>`
      -  **Freenove Basic Starter Kit for ESP8266**
+     -  |Purchase75|
 
-   * -  .. centered:: |FNK0076|
-     -  .. centered:: :Freenove:`fnk0076 <fnk0076>`
-     -  **Freenove ESP8266 Board**
-  
 .. |FNK0073| image:: ../_static/products/ESP8266/FNK0073.png  
+    :class: product-image
 .. |FNK0074| image:: ../_static/products/ESP8266/FNK0074.png  
+    :class: product-image
 .. |FNK0075| image:: ../_static/products/ESP8266/FNK0075.png  
-.. |FNK0076| image:: ../_static/products/ESP8266/FNK0076.png  
+    :class: product-image
+
+Boards
+----------------------------------------------------------------
+
+.. list-table::
+   :header-rows: 1 
+   :width: 90%
+   :align: center
+   :widths: 6 3 12 2
+   :class: product-table
+   
+   * -  Image
+     -  SKU
+     -  Name
+     -  Purchase
+
+   * -  .. centered:: |FNK0076A|
+     -  .. centered:: :Freenove:`FNK0076 <fnk0076>`
+     -  **Freenove ESP8266 Board**
+     -  |Purchase76|
+
+.. |FNK0076A| image:: ../_static/products/ESP8266/FNK0076A.png
+    :class: product-image
+
+.. |Purchase73| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0073
+   :alt: Purchase
+.. |Purchase74| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0074
+   :alt: Purchase
+.. |Purchase75| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0075
+   :alt: Purchase
+.. |Purchase76| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0076
+   :alt: Purchase
