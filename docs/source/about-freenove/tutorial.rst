@@ -598,6 +598,12 @@ Tutorial
       - .. centered:: `Download <https://github.com/Freenove/Freenove_ESP32_Display/archive/refs/heads/main.zip>`__
       - .. centered:: :Freenove:`Online <fnk0103>`
 
+    * - .. centered:: FNK0104
+      - **Freenove ESP32 S3 Display**
+      - .. centered:: `View <https://github.com/Freenove/Freenove_ESP32_S3_Display>`__	
+      - .. centered:: `Download <https://github.com/Freenove/Freenove_ESP32_S3_Display/archive/refs/heads/main.zip>`__
+      - .. centered:: :Freenove:`Online <fnk0104>`
+
     * - .. centered:: FNK0105
       - **Freenove Multi M.2 NVMe Adapter for Raspberry Pi**
       - .. centered:: `View <https://github.com/Freenove/Freenove_Multi_M.2_NVMe_Adapter_for_Raspberry_Pi>`__	
