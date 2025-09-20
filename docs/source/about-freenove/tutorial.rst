@@ -609,3 +609,9 @@ Tutorial
       - .. centered:: `View <https://github.com/Freenove/Freenove_Multi_M.2_NVMe_Adapter_for_Raspberry_Pi>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_Multi_M.2_NVMe_Adapter_for_Raspberry_Pi/archive/refs/heads/main.zip>`__
       - .. centered:: :Freenove:`Online <fnk0105>`
+
+    * - .. centered:: FNK0106
+      - **Freenove M.2 NVMe SSD**
+      - .. centered:: `View <https://github.com/Freenove/Freenove_M.2_NVMe_SSD>`__	
+      - .. centered:: `Download <https://github.com/Freenove/Freenove_M.2_NVMe_SSD/archive/refs/heads/main.zip>`__
+      - .. centered:: :Freenove:`Online <fnk0106>`
