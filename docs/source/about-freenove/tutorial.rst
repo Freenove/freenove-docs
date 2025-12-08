@@ -615,3 +615,9 @@ Tutorial
       - .. centered:: `View <https://github.com/Freenove/Freenove_M.2_NVMe_SSD>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_M.2_NVMe_SSD/archive/refs/heads/main.zip>`__
       - .. centered:: :Freenove:`Online <fnk0106>`
+
+    * - .. centered:: FNK0107
+      - **Freenove Computer Case Kit Pro for Raspberry_Pi**
+      - .. centered:: `View <https://github.com/Freenove/Freenove_Computer_Case_Kit_Pro_for_Raspberry_Pi>`__	
+      - .. centered:: `Download <https://github.com/Freenove/Freenove_Computer_Case_Kit_Pro_for_Raspberry_Pi/archive/refs/heads/main.zip>`__
+      - .. centered:: :Freenove:`Online <fnk0107>`
