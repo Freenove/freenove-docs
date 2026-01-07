@@ -98,11 +98,18 @@ Boards
      -  **Freenove ESP32 Display**
      -  |Purchase103|
 
+   * -  .. centered:: |FNK0112|
+     -  .. centered:: :Freenove:`FNK0112 <fnk0112>`
+     -  **Freenove ESP32 Mini TV**
+     -  |Purchase112|
+
 .. |FNK0060B| image:: ../_static/products/ESP32/FNK0060B.png
     :class: product-image
 .. |FNK0090A| image:: ../_static/products/ESP32/FNK0090A.png 
     :class: product-image
 .. |FNK0103| image:: ../_static/products/ESP32/FNK0103.png   
+    :class: product-image
+.. |FNK0112| image:: ../_static/products/ESP32/FNK0112.png   
     :class: product-image
 
 Accessories
@@ -172,4 +179,9 @@ Accessories
    :class: purchase-icon
    :width: 30px
    :target: https://store.freenove.com/products/fnk0091
+   :alt: Purchase
+.. |Purchase112| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0112
    :alt: Purchase
