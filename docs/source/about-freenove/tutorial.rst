@@ -622,6 +622,12 @@ Tutorial
       - .. centered:: `Download <https://github.com/Freenove/Freenove_Computer_Case_Kit_Pro_for_Raspberry_Pi/archive/refs/heads/main.zip>`__
       - .. centered:: :Freenove:`Online <fnk0107>`
 
+    * - .. centered:: FNK0108
+      - **Freenove Computer Case Kit Pro for Raspberry_Pi**
+      - .. centered:: `View <https://github.com/Freenove/Freenove_Computer_Case_Kit_Mini_for_Raspberry_Pi>`__	
+      - .. centered:: `Download <https://github.com/Freenove/Freenove_Computer_Case_Kit_Mini_for_Raspberry_Pi/archive/refs/heads/main.zip>`__
+      - .. centered:: :Freenove:`Online <fnk0108>`
+
     * - .. centered:: FNK0112
       - **Freenove ESP32 Mini TV**
       - .. centered:: `View <https://github.com/Freenove/Freenove_ESP32_Mini_TV>`__	

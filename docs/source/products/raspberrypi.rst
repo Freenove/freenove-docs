@@ -183,6 +183,21 @@ Accessories
      -  **Freenove Multi M.2 NVMe Adapter for Raspberry Pi**
      -  |Purchase105|
 
+   * -  .. centered:: |FNK0106|
+     -  .. centered:: :Freenove:`FNK0106 <fnk0106>`
+     -  **Freenove M.2 NVMe SSD**
+     -  |Purchase105|
+
+   * -  .. centered:: |FNK0107|
+     -  .. centered:: :Freenove:`FNK0107 <fnk0107>`
+     -  **Freenove Computer Case Kit Pro for Raspberry_Pi**
+     -  |Purchase107|
+
+   * -  .. centered:: |FNK0108|
+     -  .. centered:: :Freenove:`FNK0108 <fnk0108>`
+     -  **Freenove Computer Case Kit Mini for Raspberry Pi**
+     -  |Purchase108|
+
 .. |FNK0055D| image:: ../_static/products/RaspberryPi/FNK0055D.png
     :class: product-image
 .. |FNK0056B| image:: ../_static/products/RaspberryPi/FNK0056B.png
@@ -194,6 +209,12 @@ Accessories
 .. |FNK0100K| image:: ../_static/products/RaspberryPi/FNK0100K.png
     :class: product-image
 .. |FNK0105A| image:: ../_static/products/RaspberryPi/FNK0105A.jpg
+    :class: product-image
+.. |FNK0106| image:: ../_static/products/RaspberryPi/FNK0106.png
+    :class: product-image
+.. |FNK0107| image:: ../_static/products/RaspberryPi/FNK0107.jpg
+    :class: product-image
+.. |FNK0108| image:: ../_static/products/RaspberryPi/FNK0108.jpg
     :class: product-image
 
 .. |Purchase19| image:: ../_static/images/cart.png
@@ -296,8 +317,27 @@ Accessories
    :width: 30px
    :target: https://store.freenove.com/products/fnk0100
    :alt: Purchase
+
 .. |Purchase105| image:: ../_static/images/cart.png
    :class: purchase-icon
    :width: 30px
    :target: https://store.freenove.com/products/fnk0105
+   :alt: Purchase
+  
+.. |Purchase106| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0106
+   :alt: Purchase
+  
+.. |Purchase107| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0107
+   :alt: Purchase
+  
+.. |Purchase108| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0108
    :alt: Purchase
