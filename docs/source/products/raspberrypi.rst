@@ -198,6 +198,11 @@ Accessories
      -  **Freenove Computer Case Kit Mini for Raspberry Pi**
      -  |Purchase108|
 
+   * -  .. centered:: |FNK0113|
+     -  .. centered:: :Freenove:`FNK0113 <fnk0113>`
+     -  **Freenove Tower Cooler for Raspberry Pi**
+     -  |Purchase113|
+
 .. |FNK0055D| image:: ../_static/products/RaspberryPi/FNK0055D.png
     :class: product-image
 .. |FNK0056B| image:: ../_static/products/RaspberryPi/FNK0056B.png
@@ -215,6 +220,8 @@ Accessories
 .. |FNK0107| image:: ../_static/products/RaspberryPi/FNK0107.jpg
     :class: product-image
 .. |FNK0108| image:: ../_static/products/RaspberryPi/FNK0108.jpg
+    :class: product-image
+.. |FNK0113| image:: ../_static/products/RaspberryPi/FNK0113.jpg
     :class: product-image
 
 .. |Purchase19| image:: ../_static/images/cart.png
@@ -340,4 +347,10 @@ Accessories
    :class: purchase-icon
    :width: 30px
    :target: https://store.freenove.com/products/fnk0108
+   :alt: Purchase
+
+.. |Purchase113| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0113
    :alt: Purchase

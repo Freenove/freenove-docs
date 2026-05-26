@@ -634,6 +634,12 @@ Tutorial
       - .. centered:: `Download <https://github.com/Freenove/Freenove_ESP32_Mini_TV/archive/refs/heads/main.zip>`__
       - .. centered:: :Freenove:`Online <fnk0112>`
 
+    * - .. centered:: FNK0113
+      - **Freenove Tower Cooler for Raspberry Pi**
+      - .. centered:: `View <https://github.com/Freenove/Freenove_Tower_Cooler_for_Raspberry_Pi>`__	
+      - .. centered:: `Download <https://github.com/Freenove/Freenove_Tower_Cooler_for_Raspberry_Pi/archive/refs/heads/main.zip>`__
+      - .. centered:: :Freenove:`Online <fnk0113>`
+
     * - .. centered:: FNK0114
       - **Freenove ESP32 Display**
       - .. centered:: `View <https://github.com/Freenove/Freenove_ESP32_Display>`__	
