@@ -41,6 +41,16 @@ Starter kits
      -  **Freenove Media Kit for ESP32-S3**
      -  |Purchase102|
 
+   * -  .. centered:: |FNK0104|
+     -  .. centered:: :Freenove:`FNK0104 <fnk0104>`
+     -  **Freenove ESP32 S3 Display**
+     -  |Purchase104|
+
+   * -  .. centered:: |FNK0115|
+     -  .. centered:: :Freenove:`FNK0115 <fnk0115>`
+     -  **Freenove ESP32 S3 Display FNK0115**
+     -  |Purchase115|
+
 .. |FNK0082| image:: ../_static/products/ESP32S3/FNK0082.png   
     :class: product-image
 .. |FNK0083| image:: ../_static/products/ESP32S3/FNK0083.png   
@@ -50,6 +60,10 @@ Starter kits
 .. |FNK0086| image:: ../_static/products/ESP32S3/FNK0086.png     
     :class: product-image
 .. |FNK0102A| image:: ../_static/products/ESP32S3/FNK0102A.png     
+    :class: product-image
+.. |FNK0104| image:: ../_static/products/ESP32S3/FNK0104.png     
+    :class: product-image
+.. |FNK0115| image:: ../_static/products/ESP32S3/FNK0115.png     
     :class: product-image
 
 Boards
@@ -116,4 +130,14 @@ Boards
    :class: purchase-icon
    :width: 30px
    :target: https://store.freenove.com/products/fnk0102
+   :alt: Purchase
+.. |Purchase104| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0104
+   :alt: Purchase
+.. |Purchase115| image:: ../_static/images/cart.png
+   :class: purchase-icon
+   :width: 30px
+   :target: https://store.freenove.com/products/fnk0115
    :alt: Purchase

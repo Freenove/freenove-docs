@@ -645,3 +645,9 @@ Tutorial
       - .. centered:: `View <https://github.com/Freenove/Freenove_ESP32_Display>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_ESP32_Display/archive/refs/heads/main.zip>`__
       - .. centered:: :Freenove:`Online <fnk0103>`
+
+    * - .. centered:: FNK0115
+      - **Freenove ESP32 S3 Display**
+      - .. centered:: `View <https://github.com/Freenove/Freenove_ESP32_S3_Display_FNK0115>`__	
+      - .. centered:: `Download <https://github.com/Freenove/Freenove_ESP32_S3_Display_FNK0115/archive/refs/heads/main.zip>`__
+      - .. centered:: :Freenove:`Online <fnk0115>`
