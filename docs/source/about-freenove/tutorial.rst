@@ -623,7 +623,7 @@ Tutorial
       - .. centered:: :Freenove:`Online <fnk0107>`
 
     * - .. centered:: FNK0108
-      - **Freenove Computer Case Kit Pro for Raspberry_Pi**
+      - **Freenove Computer Case Kit Mini for Raspberry_Pi**
       - .. centered:: `View <https://github.com/Freenove/Freenove_Computer_Case_Kit_Mini_for_Raspberry_Pi>`__	
       - .. centered:: `Download <https://github.com/Freenove/Freenove_Computer_Case_Kit_Mini_for_Raspberry_Pi/archive/refs/heads/main.zip>`__
       - .. centered:: :Freenove:`Online <fnk0108>`
